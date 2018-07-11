@@ -2,4 +2,3 @@ Bugs in Structural Links.
 -> if user scrolls scenes to outside, then link attached to triangle that symbolize structural link deattched weridly. 
    Maybe refresh process has bugs...
 
-
