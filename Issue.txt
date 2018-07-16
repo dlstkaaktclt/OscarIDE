@@ -2,3 +2,5 @@ Bugs in Structural Links.
 -> if user scrolls scenes to outside, then link attached to triangle that symbolize structural link deattched weridly. 
    Maybe refresh process has bugs...
 
+Contain functionality has bugs. (contained link overdrawed at outside of containing object,
+     and contained object hided in containing object if user moves containing object or resize containing object)
