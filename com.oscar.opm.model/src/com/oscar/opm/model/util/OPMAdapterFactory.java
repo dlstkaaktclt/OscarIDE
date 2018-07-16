@@ -68,8 +68,20 @@ public class OPMAdapterFactory extends AdapterFactoryImpl {
 	protected OPMSwitch<Adapter> modelSwitch =
 		new OPMSwitch<Adapter>() {
 			@Override
+			public Adapter caseOPMContainer(OPMContainer object) {
+				return createOPMContainerAdapter();
+			}
+			@Override
 			public Adapter caseOPMObjectProcessDiagram(OPMObjectProcessDiagram object) {
 				return createOPMObjectProcessDiagramAdapter();
+			}
+			@Override
+			public Adapter caseOPMNode(OPMNode object) {
+				return createOPMNodeAdapter();
+			}
+			@Override
+			public Adapter caseOPMThing(OPMThing object) {
+				return createOPMThingAdapter();
 			}
 			@Override
 			public Adapter caseOPMObject(OPMObject object) {
@@ -80,24 +92,16 @@ public class OPMAdapterFactory extends AdapterFactoryImpl {
 				return createOPMProcessAdapter();
 			}
 			@Override
-			public Adapter caseOPMLink(OPMLink object) {
-				return createOPMLinkAdapter();
-			}
-			@Override
-			public Adapter caseOPMThing(OPMThing object) {
-				return createOPMThingAdapter();
-			}
-			@Override
 			public Adapter caseOPMStructuralLinkAggregator(OPMStructuralLinkAggregator object) {
 				return createOPMStructuralLinkAggregatorAdapter();
 			}
 			@Override
-			public Adapter caseOPMProceduralLink(OPMProceduralLink object) {
-				return createOPMProceduralLinkAdapter();
+			public Adapter caseOPMLink(OPMLink object) {
+				return createOPMLinkAdapter();
 			}
 			@Override
-			public Adapter caseOPMNode(OPMNode object) {
-				return createOPMNodeAdapter();
+			public Adapter caseOPMProceduralLink(OPMProceduralLink object) {
+				return createOPMProceduralLinkAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -118,6 +122,20 @@ public class OPMAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.oscar.opm.model.OPMContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.oscar.opm.model.OPMContainer
+	 * @generated
+	 */
+	public Adapter createOPMContainerAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.oscar.opm.model.OPMObjectProcessDiagram <em>Object Process Diagram</em>}'.

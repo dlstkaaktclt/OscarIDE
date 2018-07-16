@@ -4,9 +4,6 @@ package com.oscar.opm.model.tests;
 
 import com.oscar.opm.model.OPMFactory;
 import com.oscar.opm.model.OPMNode;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -18,19 +15,12 @@ import junit.textui.TestRunner;
  * <ul>
  *   <li>{@link com.oscar.opm.model.OPMNode#getOutgoingStructuralLinks() <em>Get Outgoing Structural Links</em>}</li>
  *   <li>{@link com.oscar.opm.model.OPMNode#getIncomingStructuralLinks() <em>Get Incoming Structural Links</em>}</li>
+ *   <li>{@link com.oscar.opm.model.OPMNode#getOpd() <em>Get Opd</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class OPMNodeTest extends TestCase {
-
-	/**
-	 * The fixture for this Node test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OPMNode fixture = null;
+public class OPMNodeTest extends OPMContainerTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,23 +42,14 @@ public class OPMNodeTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Node test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(OPMNode fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Node test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected OPMNode getFixture() {
-		return fixture;
+		return (OPMNode)fixture;
 	}
 
 	/**
@@ -114,6 +95,19 @@ public class OPMNodeTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetIncomingStructuralLinks() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.oscar.opm.model.OPMNode#getOpd() <em>Get Opd</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.oscar.opm.model.OPMNode#getOpd()
+	 * @generated
+	 */
+	public void testGetOpd() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

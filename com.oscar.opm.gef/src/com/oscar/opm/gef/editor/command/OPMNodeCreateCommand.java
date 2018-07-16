@@ -4,33 +4,34 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
 
 import com.oscar.opm.model.OPMObjectProcessDiagram;
+import com.oscar.opm.model.OPMContainer;
 import com.oscar.opm.model.OPMNode;
 
 public class OPMNodeCreateCommand extends Command {
 		
 	private OPMNode node;
 	private Rectangle constraints;
-	private OPMObjectProcessDiagram opd;
+	private OPMContainer container;
 	
 	@Override
 	public boolean canExecute() {
-	    return node != null && constraints != null && opd != null;
+	    return node != null && constraints != null && container != null;
 	}
 	
 	@Override
 	public void execute() {
 		node.setConstraints(constraints);
-		node.setOpd(opd);
+		node.setContainer(container);
 	}
 	
 	@Override
 	public void undo() {
-		node.setOpd(null);
+		node.setContainer(null);
 	}
 	
 	
-	public void setParent(final OPMObjectProcessDiagram opd) {
-		this.opd = opd;
+	public void setContainer(final OPMContainer container) {
+		this.container = container;
 	}
 	
 	public void setNode(final OPMNode node) {

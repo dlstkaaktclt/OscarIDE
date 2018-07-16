@@ -3,6 +3,7 @@
 package com.oscar.opm.model.impl;
 
 import com.oscar.opm.model.OPMLink;
+import com.oscar.opm.model.OPMLinkRouterKind;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMPackage;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.oscar.opm.model.impl.OPMLinkImpl#getSource <em>Source</em>}</li>
  *   <li>{@link com.oscar.opm.model.impl.OPMLinkImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link com.oscar.opm.model.impl.OPMLinkImpl#getBendpoints <em>Bendpoints</em>}</li>
+ *   <li>{@link com.oscar.opm.model.impl.OPMLinkImpl#getRouterKind <em>Router Kind</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +67,25 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 	 * @ordered
 	 */
 	protected EList<Point> bendpoints;
+
+	/**
+	 * The default value of the '{@link #getRouterKind() <em>Router Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRouterKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OPMLinkRouterKind ROUTER_KIND_EDEFAULT = OPMLinkRouterKind.BENDPOINT;
+	/**
+	 * The cached value of the '{@link #getRouterKind() <em>Router Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRouterKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected OPMLinkRouterKind routerKind = ROUTER_KIND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -263,6 +284,27 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OPMLinkRouterKind getRouterKind() {
+		return routerKind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRouterKind(OPMLinkRouterKind newRouterKind) {
+		OPMLinkRouterKind oldRouterKind = routerKind;
+		routerKind = newRouterKind == null ? ROUTER_KIND_EDEFAULT : newRouterKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OPMPackage.OPM_LINK__ROUTER_KIND, oldRouterKind, routerKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -332,6 +374,8 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 				return basicGetTarget();
 			case OPMPackage.OPM_LINK__BENDPOINTS:
 				return getBendpoints();
+			case OPMPackage.OPM_LINK__ROUTER_KIND:
+				return getRouterKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +402,9 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 				getBendpoints().clear();
 				getBendpoints().addAll((Collection<? extends Point>)newValue);
 				return;
+			case OPMPackage.OPM_LINK__ROUTER_KIND:
+				setRouterKind((OPMLinkRouterKind)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -382,6 +429,9 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 			case OPMPackage.OPM_LINK__BENDPOINTS:
 				getBendpoints().clear();
 				return;
+			case OPMPackage.OPM_LINK__ROUTER_KIND:
+				setRouterKind(ROUTER_KIND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -402,6 +452,8 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 				return target != null;
 			case OPMPackage.OPM_LINK__BENDPOINTS:
 				return bendpoints != null && !bendpoints.isEmpty();
+			case OPMPackage.OPM_LINK__ROUTER_KIND:
+				return routerKind != ROUTER_KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -418,6 +470,8 @@ public class OPMLinkImpl extends EObjectImpl implements OPMLink {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (bendpoints: ");
 		result.append(bendpoints);
+		result.append(", routerKind: ");
+		result.append(routerKind);
 		result.append(')');
 		return result.toString();
 	}

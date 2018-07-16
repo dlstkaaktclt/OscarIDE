@@ -60,14 +60,15 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case OPMPackage.OPM_CONTAINER: return createOPMContainer();
 			case OPMPackage.OPM_OBJECT_PROCESS_DIAGRAM: return createOPMObjectProcessDiagram();
+			case OPMPackage.OPM_NODE: return createOPMNode();
+			case OPMPackage.OPM_THING: return createOPMThing();
 			case OPMPackage.OPM_OBJECT: return createOPMObject();
 			case OPMPackage.OPM_PROCESS: return createOPMProcess();
-			case OPMPackage.OPM_LINK: return createOPMLink();
-			case OPMPackage.OPM_THING: return createOPMThing();
 			case OPMPackage.OPM_STRUCTURAL_LINK_AGGREGATOR: return createOPMStructuralLinkAggregator();
+			case OPMPackage.OPM_LINK: return createOPMLink();
 			case OPMPackage.OPM_PROCEDURAL_LINK: return createOPMProceduralLink();
-			case OPMPackage.OPM_NODE: return createOPMNode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,6 +86,8 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 				return createOPMStructuralLinkAggregatorKindFromString(eDataType, initialValue);
 			case OPMPackage.OPM_PROCEDURAL_LINK_KIND:
 				return createOPMProceduralLinkKindFromString(eDataType, initialValue);
+			case OPMPackage.OPM_LINK_ROUTER_KIND:
+				return createOPMLinkRouterKindFromString(eDataType, initialValue);
 			case OPMPackage.RECTANGLE:
 				return createRectangleFromString(eDataType, initialValue);
 			case OPMPackage.POINT:
@@ -106,6 +109,8 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 				return convertOPMStructuralLinkAggregatorKindToString(eDataType, instanceValue);
 			case OPMPackage.OPM_PROCEDURAL_LINK_KIND:
 				return convertOPMProceduralLinkKindToString(eDataType, instanceValue);
+			case OPMPackage.OPM_LINK_ROUTER_KIND:
+				return convertOPMLinkRouterKindToString(eDataType, instanceValue);
 			case OPMPackage.RECTANGLE:
 				return convertRectangleToString(eDataType, instanceValue);
 			case OPMPackage.POINT:
@@ -113,6 +118,16 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OPMContainer createOPMContainer() {
+		OPMContainerImpl opmContainer = new OPMContainerImpl();
+		return opmContainer;
 	}
 
 	/**
@@ -232,6 +247,26 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 	 * @generated
 	 */
 	public String convertOPMProceduralLinkKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OPMLinkRouterKind createOPMLinkRouterKindFromString(EDataType eDataType, String initialValue) {
+		OPMLinkRouterKind result = OPMLinkRouterKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOPMLinkRouterKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

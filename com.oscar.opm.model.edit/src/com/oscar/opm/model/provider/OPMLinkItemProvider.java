@@ -4,6 +4,7 @@ package com.oscar.opm.model.provider;
 
 
 import com.oscar.opm.model.OPMLink;
+import com.oscar.opm.model.OPMLinkRouterKind;
 import com.oscar.opm.model.OPMPackage;
 import java.util.Collection;
 import java.util.List;
@@ -60,6 +61,7 @@ public class OPMLinkItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBendpointsPropertyDescriptor(object);
+			addRouterKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +89,28 @@ public class OPMLinkItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Router Kind feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRouterKindPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OPMLink_routerKind_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OPMLink_routerKind_feature", "_UI_OPMLink_type"),
+				 OPMPackage.Literals.OPM_LINK__ROUTER_KIND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns OPMLink.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,7 +129,11 @@ public class OPMLinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OPMLink_type");
+		OPMLinkRouterKind labelValue = ((OPMLink)object).getRouterKind();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OPMLink_type") :
+			getString("_UI_OPMLink_type") + " " + label;
 	}
 	
 
@@ -122,6 +150,7 @@ public class OPMLinkItemProvider
 
 		switch (notification.getFeatureID(OPMLink.class)) {
 			case OPMPackage.OPM_LINK__BENDPOINTS:
+			case OPMPackage.OPM_LINK__ROUTER_KIND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

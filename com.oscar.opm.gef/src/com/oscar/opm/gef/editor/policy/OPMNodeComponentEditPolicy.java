@@ -31,8 +31,18 @@ public class OPMNodeComponentEditPolicy extends ComponentEditPolicy {
 	protected Command createDeleteCommand(GroupRequest deleteRequest) {
 		OPMNode nodeToDelete =  (OPMNode) getHost().getModel();
 		CompoundCommand compoundCommand = new CompoundCommand();
+		compoundCommand = createRecursiveDeleteNodeCommand(nodeToDelete);
+		
+		return compoundCommand;
 
-        // For every outgoing structural link, create a command to delete the aggregator
+        
+	}
+	
+	private CompoundCommand createRecursiveDeleteNodeCommand(OPMNode nodeToDelete) {
+		CompoundCommand compoundCommand = new CompoundCommand();
+		
+		
+		// For every outgoing structural link, create a command to delete the aggregator
         // node at the end of the link.
 		for(OPMLink outgoingStructuralLink : nodeToDelete.getOutgoingStructuralLinks()) {
 			OPMNode aggregatorNode = outgoingStructuralLink.getTarget();
@@ -50,9 +60,16 @@ public class OPMNodeComponentEditPolicy extends ComponentEditPolicy {
 				compoundCommand.add(aggregatorNodeDeleteCommand);
 			}
 		}
+		
+		for (OPMNode node : nodeToDelete.getNodes()) {
+			Command containedNodeDelete = createRecursiveDeleteNodeCommand(node);
+			compoundCommand.add(containedNodeDelete);
+		}
+		
+		
 		// Create a command to delete the node.
 		OPMNodeDeleteCommand nodeDeleteCommand = new OPMNodeDeleteCommand();
-		nodeDeleteCommand.setNode((OPMNode) getHost().getModel());
+		nodeDeleteCommand.setNode(nodeToDelete);
 		compoundCommand.add(nodeDeleteCommand);
 
 		return compoundCommand;

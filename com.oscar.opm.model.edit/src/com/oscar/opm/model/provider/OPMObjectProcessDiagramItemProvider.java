@@ -12,18 +12,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -33,13 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class OPMObjectProcessDiagramItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends OPMContainerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,7 +61,6 @@ public class OPMObjectProcessDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES);
 			childrenFeatures.add(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__LINKS);
 		}
 		return childrenFeatures;
@@ -131,7 +114,6 @@ public class OPMObjectProcessDiagramItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OPMObjectProcessDiagram.class)) {
-			case OPMPackage.OPM_OBJECT_PROCESS_DIAGRAM__NODES:
 			case OPMPackage.OPM_OBJECT_PROCESS_DIAGRAM__LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -152,31 +134,6 @@ public class OPMObjectProcessDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES,
-				 OPMFactory.eINSTANCE.createOPMNode()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES,
-				 OPMFactory.eINSTANCE.createOPMThing()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES,
-				 OPMFactory.eINSTANCE.createOPMObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES,
-				 OPMFactory.eINSTANCE.createOPMProcess()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__NODES,
-				 OPMFactory.eINSTANCE.createOPMStructuralLinkAggregator()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__LINKS,
 				 OPMFactory.eINSTANCE.createOPMLink()));
 
@@ -184,17 +141,6 @@ public class OPMObjectProcessDiagramItemProvider
 			(createChildParameter
 				(OPMPackage.Literals.OPM_OBJECT_PROCESS_DIAGRAM__LINKS,
 				 OPMFactory.eINSTANCE.createOPMProceduralLink()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return OPMEditPlugin.INSTANCE;
 	}
 
 }

@@ -4,6 +4,7 @@ import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.XYLayout;
@@ -17,19 +18,27 @@ public class OPMObjectFigure extends Figure implements OPMThingFigure {
 	
 	public OPMObjectFigure() {
 		setLayoutManager(new XYLayout());
-		rectangle = new RectangleFigure();
-		add(rectangle);
 		nameLabel = new Label();
 		add(nameLabel);
+		rectangle = new RectangleFigure();
+		rectangle.setFill(false);
+		rectangle.setLayoutManager(new XYLayout());
+		add(rectangle);
 	}
+	
+	@Override
+	public IFigure getContentPane() {
+		return rectangle;
+	}
+	
 	
 	@Override
 	protected void paintFigure(Graphics graphics) {
 		Rectangle r = getBounds().getCopy();
 		setConstraint(rectangle,new Rectangle(0,0,r.width,r.height));
 		setConstraint(nameLabel,new Rectangle(0,0,r.width,r.height));
-		nameLabel.invalidate();
 		rectangle.invalidate();
+		nameLabel.invalidate();
 	}
 	
 	public Label getNameLabel() {
@@ -49,6 +58,11 @@ public class OPMObjectFigure extends Figure implements OPMThingFigure {
 	
 	public ConnectionAnchor getTargetConnectionAnchor() {
 		return getConnectionAnchor();
+	}
+	
+	@Override
+	protected boolean useLocalCoordinates() {
+		return true;
 	}
 
 }

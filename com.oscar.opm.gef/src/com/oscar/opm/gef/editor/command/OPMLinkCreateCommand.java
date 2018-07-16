@@ -16,7 +16,7 @@ public class OPMLinkCreateCommand extends Command {
 	
 	@Override
 	public boolean canExecute() {
-		return (source != null) && (target != null) && (link != null); 
+		return (source != null) && (target != null) && (link != null) && (opd!=null); 
 	}
 	
 	@Override

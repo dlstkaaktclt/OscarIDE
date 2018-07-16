@@ -1,5 +1,6 @@
 package com.oscar.opm.gef.editor.part;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -15,6 +16,7 @@ import org.eclipse.gef.NodeEditPart;
 import com.oscar.opm.model.OPMLink;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.gef.editor.figure.OPMNodeFigure;
+import com.oscar.opm.gef.editor.policy.OPMContainerXYLayoutPolicy;
 import com.oscar.opm.gef.editor.policy.OPMNodeComponentEditPolicy;
 import com.oscar.opm.gef.editor.policy.OPMNodeGraphicalNodeEditPolicy;
 
@@ -25,9 +27,7 @@ public abstract class OPMNodeEditPart extends AbstractGraphicalEditPart implemen
 	public class OPMNodeAdapter implements Adapter{
 		@Override
 		public void notifyChanged(Notification notification) {
-			refreshVisuals();
-			refreshSourceConnections();
-			refreshTargetConnections();
+			refresh();
 		}
 		
 		@Override
@@ -84,6 +84,13 @@ public abstract class OPMNodeEditPart extends AbstractGraphicalEditPart implemen
 	protected void createEditPolicies() {
 		installEditPolicy(EditPolicy.COMPONENT_ROLE, new OPMNodeComponentEditPolicy());
         installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE, new OPMNodeGraphicalNodeEditPolicy());
+        installEditPolicy(EditPolicy.LAYOUT_ROLE, new OPMContainerXYLayoutPolicy());
+	}
+	
+	@Override
+	protected List getModelChildren() {
+		OPMNode model = (OPMNode) getModel();
+		return Collections.unmodifiableList(model.getNodes());
 	}
 	
 	@Override

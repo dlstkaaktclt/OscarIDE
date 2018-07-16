@@ -66,9 +66,31 @@ public class OPMSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case OPMPackage.OPM_CONTAINER: {
+				OPMContainer opmContainer = (OPMContainer)theEObject;
+				T result = caseOPMContainer(opmContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case OPMPackage.OPM_OBJECT_PROCESS_DIAGRAM: {
 				OPMObjectProcessDiagram opmObjectProcessDiagram = (OPMObjectProcessDiagram)theEObject;
 				T result = caseOPMObjectProcessDiagram(opmObjectProcessDiagram);
+				if (result == null) result = caseOPMContainer(opmObjectProcessDiagram);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OPMPackage.OPM_NODE: {
+				OPMNode opmNode = (OPMNode)theEObject;
+				T result = caseOPMNode(opmNode);
+				if (result == null) result = caseOPMContainer(opmNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OPMPackage.OPM_THING: {
+				OPMThing opmThing = (OPMThing)theEObject;
+				T result = caseOPMThing(opmThing);
+				if (result == null) result = caseOPMNode(opmThing);
+				if (result == null) result = caseOPMContainer(opmThing);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -77,6 +99,7 @@ public class OPMSwitch<T> extends Switch<T> {
 				T result = caseOPMObject(opmObject);
 				if (result == null) result = caseOPMThing(opmObject);
 				if (result == null) result = caseOPMNode(opmObject);
+				if (result == null) result = caseOPMContainer(opmObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -85,19 +108,7 @@ public class OPMSwitch<T> extends Switch<T> {
 				T result = caseOPMProcess(opmProcess);
 				if (result == null) result = caseOPMThing(opmProcess);
 				if (result == null) result = caseOPMNode(opmProcess);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OPMPackage.OPM_LINK: {
-				OPMLink opmLink = (OPMLink)theEObject;
-				T result = caseOPMLink(opmLink);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OPMPackage.OPM_THING: {
-				OPMThing opmThing = (OPMThing)theEObject;
-				T result = caseOPMThing(opmThing);
-				if (result == null) result = caseOPMNode(opmThing);
+				if (result == null) result = caseOPMContainer(opmProcess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,6 +116,13 @@ public class OPMSwitch<T> extends Switch<T> {
 				OPMStructuralLinkAggregator opmStructuralLinkAggregator = (OPMStructuralLinkAggregator)theEObject;
 				T result = caseOPMStructuralLinkAggregator(opmStructuralLinkAggregator);
 				if (result == null) result = caseOPMNode(opmStructuralLinkAggregator);
+				if (result == null) result = caseOPMContainer(opmStructuralLinkAggregator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OPMPackage.OPM_LINK: {
+				OPMLink opmLink = (OPMLink)theEObject;
+				T result = caseOPMLink(opmLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,14 +133,23 @@ public class OPMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OPMPackage.OPM_NODE: {
-				OPMNode opmNode = (OPMNode)theEObject;
-				T result = caseOPMNode(opmNode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOPMContainer(OPMContainer object) {
+		return null;
 	}
 
 	/**

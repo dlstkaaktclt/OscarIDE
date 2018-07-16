@@ -60,14 +60,14 @@ public interface OPMPackage extends EPackage {
 	OPMPackage eINSTANCE = com.oscar.opm.model.impl.OPMPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMObjectProcessDiagramImpl <em>Object Process Diagram</em>}' class.
+	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMContainerImpl <em>Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.oscar.opm.model.impl.OPMObjectProcessDiagramImpl
-	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMObjectProcessDiagram()
+	 * @see com.oscar.opm.model.impl.OPMContainerImpl
+	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMContainer()
 	 * @generated
 	 */
-	int OPM_OBJECT_PROCESS_DIAGRAM = 0;
+	int OPM_CONTAINER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -76,7 +76,44 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_OBJECT_PROCESS_DIAGRAM__NODES = 0;
+	int OPM_CONTAINER__NODES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMObjectProcessDiagramImpl <em>Object Process Diagram</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.oscar.opm.model.impl.OPMObjectProcessDiagramImpl
+	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMObjectProcessDiagram()
+	 * @generated
+	 */
+	int OPM_OBJECT_PROCESS_DIAGRAM = 1;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_OBJECT_PROCESS_DIAGRAM__NODES = OPM_CONTAINER__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -85,7 +122,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_OBJECT_PROCESS_DIAGRAM__LINKS = 1;
+	int OPM_OBJECT_PROCESS_DIAGRAM__LINKS = OPM_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Object Process Diagram</em>' class.
@@ -94,7 +131,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_OBJECT_PROCESS_DIAGRAM_FEATURE_COUNT = 2;
+	int OPM_OBJECT_PROCESS_DIAGRAM_FEATURE_COUNT = OPM_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Object Process Diagram</em>' class.
@@ -103,7 +140,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_OBJECT_PROCESS_DIAGRAM_OPERATION_COUNT = 0;
+	int OPM_OBJECT_PROCESS_DIAGRAM_OPERATION_COUNT = OPM_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMNodeImpl <em>Node</em>}' class.
@@ -113,25 +150,16 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMNode()
 	 * @generated
 	 */
-	int OPM_NODE = 7;
+	int OPM_NODE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE__CONSTRAINTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_NODE__OPD = 1;
+	int OPM_NODE__NODES = OPM_CONTAINER__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -140,7 +168,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE__INCOMING_LINKS = 2;
+	int OPM_NODE__INCOMING_LINKS = OPM_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Links</b></em>' reference list.
@@ -149,7 +177,25 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE__OUTGOING_LINKS = 3;
+	int OPM_NODE__OUTGOING_LINKS = OPM_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_NODE__CONTAINER = OPM_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_NODE__CONSTRAINTS = OPM_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -158,7 +204,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE_FEATURE_COUNT = 4;
+	int OPM_NODE_FEATURE_COUNT = OPM_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Structural Links</em>' operation.
@@ -167,7 +213,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE___GET_OUTGOING_STRUCTURAL_LINKS = 0;
+	int OPM_NODE___GET_OUTGOING_STRUCTURAL_LINKS = OPM_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Incoming Structural Links</em>' operation.
@@ -176,7 +222,16 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE___GET_INCOMING_STRUCTURAL_LINKS = 1;
+	int OPM_NODE___GET_INCOMING_STRUCTURAL_LINKS = OPM_CONTAINER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_NODE___GET_OPD = OPM_CONTAINER_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -185,7 +240,7 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_NODE_OPERATION_COUNT = 2;
+	int OPM_NODE_OPERATION_COUNT = OPM_CONTAINER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMThingImpl <em>Thing</em>}' class.
@@ -195,25 +250,16 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMThing()
 	 * @generated
 	 */
-	int OPM_THING = 4;
+	int OPM_THING = 3;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_THING__CONSTRAINTS = OPM_NODE__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_THING__OPD = OPM_NODE__OPD;
+	int OPM_THING__NODES = OPM_NODE__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -232,6 +278,24 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_THING__OUTGOING_LINKS = OPM_NODE__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_THING__CONTAINER = OPM_NODE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_THING__CONSTRAINTS = OPM_NODE__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -270,6 +334,15 @@ public interface OPMPackage extends EPackage {
 	int OPM_THING___GET_INCOMING_STRUCTURAL_LINKS = OPM_NODE___GET_INCOMING_STRUCTURAL_LINKS;
 
 	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_THING___GET_OPD = OPM_NODE___GET_OPD;
+
+	/**
 	 * The number of operations of the '<em>Thing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,25 +359,16 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMObject()
 	 * @generated
 	 */
-	int OPM_OBJECT = 1;
+	int OPM_OBJECT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_OBJECT__CONSTRAINTS = OPM_THING__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_OBJECT__OPD = OPM_THING__OPD;
+	int OPM_OBJECT__NODES = OPM_THING__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -323,6 +387,24 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_OBJECT__OUTGOING_LINKS = OPM_THING__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_OBJECT__CONTAINER = OPM_THING__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_OBJECT__CONSTRAINTS = OPM_THING__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -361,6 +443,15 @@ public interface OPMPackage extends EPackage {
 	int OPM_OBJECT___GET_INCOMING_STRUCTURAL_LINKS = OPM_THING___GET_INCOMING_STRUCTURAL_LINKS;
 
 	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_OBJECT___GET_OPD = OPM_THING___GET_OPD;
+
+	/**
 	 * The number of operations of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,25 +468,16 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMProcess()
 	 * @generated
 	 */
-	int OPM_PROCESS = 2;
+	int OPM_PROCESS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_PROCESS__CONSTRAINTS = OPM_THING__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_PROCESS__OPD = OPM_THING__OPD;
+	int OPM_PROCESS__NODES = OPM_THING__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -414,6 +496,24 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_PROCESS__OUTGOING_LINKS = OPM_THING__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_PROCESS__CONTAINER = OPM_THING__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_PROCESS__CONSTRAINTS = OPM_THING__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -452,6 +552,15 @@ public interface OPMPackage extends EPackage {
 	int OPM_PROCESS___GET_INCOMING_STRUCTURAL_LINKS = OPM_THING___GET_INCOMING_STRUCTURAL_LINKS;
 
 	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_PROCESS___GET_OPD = OPM_THING___GET_OPD;
+
+	/**
 	 * The number of operations of the '<em>Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -468,61 +577,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMLink()
 	 * @generated
 	 */
-	int OPM_LINK = 3;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK__OPD = 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK__SOURCE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK__TARGET = 2;
-
-	/**
-	 * The feature id for the '<em><b>Bendpoints</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK__BENDPOINTS = 3;
-
-	/**
-	 * The number of structural features of the '<em>Link</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Link</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_LINK_OPERATION_COUNT = 0;
+	int OPM_LINK = 7;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMStructuralLinkAggregatorImpl <em>Structural Link Aggregator</em>}' class.
@@ -532,25 +587,16 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMStructuralLinkAggregator()
 	 * @generated
 	 */
-	int OPM_STRUCTURAL_LINK_AGGREGATOR = 5;
+	int OPM_STRUCTURAL_LINK_AGGREGATOR = 6;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_STRUCTURAL_LINK_AGGREGATOR__CONSTRAINTS = OPM_NODE__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Opd</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPM_STRUCTURAL_LINK_AGGREGATOR__OPD = OPM_NODE__OPD;
+	int OPM_STRUCTURAL_LINK_AGGREGATOR__NODES = OPM_NODE__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -569,6 +615,24 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_STRUCTURAL_LINK_AGGREGATOR__OUTGOING_LINKS = OPM_NODE__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_STRUCTURAL_LINK_AGGREGATOR__CONTAINER = OPM_NODE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_STRUCTURAL_LINK_AGGREGATOR__CONSTRAINTS = OPM_NODE__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -607,6 +671,15 @@ public interface OPMPackage extends EPackage {
 	int OPM_STRUCTURAL_LINK_AGGREGATOR___GET_INCOMING_STRUCTURAL_LINKS = OPM_NODE___GET_INCOMING_STRUCTURAL_LINKS;
 
 	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_STRUCTURAL_LINK_AGGREGATOR___GET_OPD = OPM_NODE___GET_OPD;
+
+	/**
 	 * The number of operations of the '<em>Structural Link Aggregator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,6 +689,69 @@ public interface OPMPackage extends EPackage {
 	int OPM_STRUCTURAL_LINK_AGGREGATOR_OPERATION_COUNT = OPM_NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Opd</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK__OPD = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK__SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK__TARGET = 2;
+
+	/**
+	 * The feature id for the '<em><b>Bendpoints</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK__BENDPOINTS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Router Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK__ROUTER_KIND = 4;
+
+	/**
+	 * The number of structural features of the '<em>Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_LINK_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.impl.OPMProceduralLinkImpl <em>Procedural Link</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -623,7 +759,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMProceduralLink()
 	 * @generated
 	 */
-	int OPM_PROCEDURAL_LINK = 6;
+	int OPM_PROCEDURAL_LINK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Opd</b></em>' container reference.
@@ -662,6 +798,15 @@ public interface OPMPackage extends EPackage {
 	int OPM_PROCEDURAL_LINK__BENDPOINTS = OPM_LINK__BENDPOINTS;
 
 	/**
+	 * The feature id for the '<em><b>Router Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_PROCEDURAL_LINK__ROUTER_KIND = OPM_LINK__ROUTER_KIND;
+
+	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,7 +841,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMStructuralLinkAggregatorKind()
 	 * @generated
 	 */
-	int OPM_STRUCTURAL_LINK_AGGREGATOR_KIND = 8;
+	int OPM_STRUCTURAL_LINK_AGGREGATOR_KIND = 9;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.OPMProceduralLinkKind <em>Procedural Link Kind</em>}' enum.
@@ -706,7 +851,17 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMProceduralLinkKind()
 	 * @generated
 	 */
-	int OPM_PROCEDURAL_LINK_KIND = 9;
+	int OPM_PROCEDURAL_LINK_KIND = 10;
+
+	/**
+	 * The meta object id for the '{@link com.oscar.opm.model.OPMLinkRouterKind <em>Link Router Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.oscar.opm.model.OPMLinkRouterKind
+	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMLinkRouterKind()
+	 * @generated
+	 */
+	int OPM_LINK_ROUTER_KIND = 11;
 
 	/**
 	 * The meta object id for the '<em>Rectangle</em>' data type.
@@ -716,7 +871,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 10;
+	int RECTANGLE = 12;
 
 
 	/**
@@ -727,8 +882,29 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 11;
+	int POINT = 13;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.oscar.opm.model.OPMContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Container</em>'.
+	 * @see com.oscar.opm.model.OPMContainer
+	 * @generated
+	 */
+	EClass getOPMContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.oscar.opm.model.OPMContainer#getNodes <em>Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
+	 * @see com.oscar.opm.model.OPMContainer#getNodes()
+	 * @see #getOPMContainer()
+	 * @generated
+	 */
+	EReference getOPMContainer_Nodes();
 
 	/**
 	 * Returns the meta object for class '{@link com.oscar.opm.model.OPMObjectProcessDiagram <em>Object Process Diagram</em>}'.
@@ -739,17 +915,6 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOPMObjectProcessDiagram();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.oscar.opm.model.OPMObjectProcessDiagram#getNodes <em>Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
-	 * @see com.oscar.opm.model.OPMObjectProcessDiagram#getNodes()
-	 * @see #getOPMObjectProcessDiagram()
-	 * @generated
-	 */
-	EReference getOPMObjectProcessDiagram_Nodes();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.oscar.opm.model.OPMObjectProcessDiagram#getLinks <em>Links</em>}'.
@@ -837,6 +1002,17 @@ public interface OPMPackage extends EPackage {
 	EAttribute getOPMLink_Bendpoints();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.oscar.opm.model.OPMLink#getRouterKind <em>Router Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Router Kind</em>'.
+	 * @see com.oscar.opm.model.OPMLink#getRouterKind()
+	 * @see #getOPMLink()
+	 * @generated
+	 */
+	EAttribute getOPMLink_RouterKind();
+
+	/**
 	 * Returns the meta object for class '{@link com.oscar.opm.model.OPMThing <em>Thing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -921,17 +1097,6 @@ public interface OPMPackage extends EPackage {
 	EAttribute getOPMNode_Constraints();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.oscar.opm.model.OPMNode#getOpd <em>Opd</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Opd</em>'.
-	 * @see com.oscar.opm.model.OPMNode#getOpd()
-	 * @see #getOPMNode()
-	 * @generated
-	 */
-	EReference getOPMNode_Opd();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.oscar.opm.model.OPMNode#getIncomingLinks <em>Incoming Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,6 +1119,17 @@ public interface OPMPackage extends EPackage {
 	EReference getOPMNode_OutgoingLinks();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.oscar.opm.model.OPMNode#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see com.oscar.opm.model.OPMNode#getContainer()
+	 * @see #getOPMNode()
+	 * @generated
+	 */
+	EReference getOPMNode_Container();
+
+	/**
 	 * Returns the meta object for the '{@link com.oscar.opm.model.OPMNode#getOutgoingStructuralLinks() <em>Get Outgoing Structural Links</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -974,6 +1150,16 @@ public interface OPMPackage extends EPackage {
 	EOperation getOPMNode__GetIncomingStructuralLinks();
 
 	/**
+	 * Returns the meta object for the '{@link com.oscar.opm.model.OPMNode#getOpd() <em>Get Opd</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Opd</em>' operation.
+	 * @see com.oscar.opm.model.OPMNode#getOpd()
+	 * @generated
+	 */
+	EOperation getOPMNode__GetOpd();
+
+	/**
 	 * Returns the meta object for enum '{@link com.oscar.opm.model.OPMStructuralLinkAggregatorKind <em>Structural Link Aggregator Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,6 +1178,16 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOPMProceduralLinkKind();
+
+	/**
+	 * Returns the meta object for enum '{@link com.oscar.opm.model.OPMLinkRouterKind <em>Link Router Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Link Router Kind</em>'.
+	 * @see com.oscar.opm.model.OPMLinkRouterKind
+	 * @generated
+	 */
+	EEnum getOPMLinkRouterKind();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.draw2d.geometry.Rectangle <em>Rectangle</em>}'.
@@ -1039,6 +1235,24 @@ public interface OPMPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OPMContainerImpl <em>Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.oscar.opm.model.impl.OPMContainerImpl
+		 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMContainer()
+		 * @generated
+		 */
+		EClass OPM_CONTAINER = eINSTANCE.getOPMContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPM_CONTAINER__NODES = eINSTANCE.getOPMContainer_Nodes();
+
+		/**
 		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OPMObjectProcessDiagramImpl <em>Object Process Diagram</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1047,14 +1261,6 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPM_OBJECT_PROCESS_DIAGRAM = eINSTANCE.getOPMObjectProcessDiagram();
-
-		/**
-		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPM_OBJECT_PROCESS_DIAGRAM__NODES = eINSTANCE.getOPMObjectProcessDiagram_Nodes();
 
 		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
@@ -1125,6 +1331,14 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPM_LINK__BENDPOINTS = eINSTANCE.getOPMLink_Bendpoints();
+
+		/**
+		 * The meta object literal for the '<em><b>Router Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPM_LINK__ROUTER_KIND = eINSTANCE.getOPMLink_RouterKind();
 
 		/**
 		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OPMThingImpl <em>Thing</em>}' class.
@@ -1199,14 +1413,6 @@ public interface OPMPackage extends EPackage {
 		EAttribute OPM_NODE__CONSTRAINTS = eINSTANCE.getOPMNode_Constraints();
 
 		/**
-		 * The meta object literal for the '<em><b>Opd</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPM_NODE__OPD = eINSTANCE.getOPMNode_Opd();
-
-		/**
 		 * The meta object literal for the '<em><b>Incoming Links</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1223,6 +1429,14 @@ public interface OPMPackage extends EPackage {
 		EReference OPM_NODE__OUTGOING_LINKS = eINSTANCE.getOPMNode_OutgoingLinks();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPM_NODE__CONTAINER = eINSTANCE.getOPMNode_Container();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Outgoing Structural Links</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1237,6 +1451,14 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OPM_NODE___GET_INCOMING_STRUCTURAL_LINKS = eINSTANCE.getOPMNode__GetIncomingStructuralLinks();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Opd</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPM_NODE___GET_OPD = eINSTANCE.getOPMNode__GetOpd();
 
 		/**
 		 * The meta object literal for the '{@link com.oscar.opm.model.OPMStructuralLinkAggregatorKind <em>Structural Link Aggregator Kind</em>}' enum.
@@ -1257,6 +1479,16 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPM_PROCEDURAL_LINK_KIND = eINSTANCE.getOPMProceduralLinkKind();
+
+		/**
+		 * The meta object literal for the '{@link com.oscar.opm.model.OPMLinkRouterKind <em>Link Router Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.oscar.opm.model.OPMLinkRouterKind
+		 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMLinkRouterKind()
+		 * @generated
+		 */
+		EEnum OPM_LINK_ROUTER_KIND = eINSTANCE.getOPMLinkRouterKind();
 
 		/**
 		 * The meta object literal for the '<em>Rectangle</em>' data type.

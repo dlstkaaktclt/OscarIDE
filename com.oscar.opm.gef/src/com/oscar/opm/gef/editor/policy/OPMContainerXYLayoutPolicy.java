@@ -10,18 +10,16 @@ import org.eclipse.gef.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 
-import com.oscar.opm.model.OPMObjectProcessDiagram;
+import com.oscar.opm.model.OPMContainer;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMObject;
 import com.oscar.opm.model.OPMProcess;
 import com.oscar.opm.gef.editor.part.OPMStructuralLinkAggregatorEditPart;
-import com.oscar.opm.gef.editor.policy.OPMObjectProcessDiagramXYLayoutPolicy;
+import com.oscar.opm.gef.editor.policy.OPMContainerXYLayoutPolicy;
 import com.oscar.opm.gef.editor.command.OPMNodeCreateCommand;
 import com.oscar.opm.gef.editor.command.OPMNodeChangeConstraintCommand;
 
-
-
-public class OPMObjectProcessDiagramXYLayoutPolicy extends XYLayoutEditPolicy {
+public class OPMContainerXYLayoutPolicy extends XYLayoutEditPolicy {
 	
 	private static final Dimension DEFAULT_THING_DIMENSION = new Dimension(50,50);
 	
@@ -29,7 +27,8 @@ public class OPMObjectProcessDiagramXYLayoutPolicy extends XYLayoutEditPolicy {
 	 * Command created top change the constraints of a {@link OPMNode} instance.
 	 */
 	@Override
-	protected Command createChangeConstraintCommand(EditPart child,Object constraint) {
+	protected Command createChangeConstraintCommand(EditPart child,Object constraint) 
+	{
 		OPMNodeChangeConstraintCommand command = new OPMNodeChangeConstraintCommand();
 		command.setNode((OPMNode) child.getModel());
 		command.setNewConstraint((Rectangle) constraint);
@@ -40,12 +39,14 @@ public class OPMObjectProcessDiagramXYLayoutPolicy extends XYLayoutEditPolicy {
 	 * Command created to add new nodes to the OPD.
 	 */
 	@Override 
-	protected Command getCreateCommand(CreateRequest request) {
+	protected Command getCreateCommand(CreateRequest request) 
+	{
 		Command retVal = null;
 		if(request.getNewObjectType().equals(OPMObject.class) || request.getNewObjectType().equals(OPMProcess.class)){
 			OPMNodeCreateCommand command = new OPMNodeCreateCommand();
-			command.setConstraints(new Rectangle(request.getLocation(), DEFAULT_THING_DIMENSION));
-			command.setParent((OPMObjectProcessDiagram)(getHost().getModel()));
+			Rectangle constraints = (Rectangle) getConstraintFor(request);
+			command.setConstraints(new Rectangle(constraints.getLocation(),DEFAULT_THING_DIMENSION));
+			command.setContainer((OPMContainer) getHost().getModel());
 			command.setNode((OPMNode)(request.getNewObject()));
 			retVal = command;
 		}
@@ -54,7 +55,7 @@ public class OPMObjectProcessDiagramXYLayoutPolicy extends XYLayoutEditPolicy {
 	
 	/**
 	 * The superclass implementation calls 
-	 * {@link OPMObjectProcessDiagramXYLayoutPolicy#getResizeChildrenCommand(ChangeBoundsRequest) getResizeChildrenCommand()}
+	 * {@link OPMContainerXYLayoutPolicy#getResizeChildrenCommand(ChangeBoundsRequest) getResizeChildrenCommand()}
 	 *  by default. This is not good in our case since we want to disallow resizing of 
 	 *  {@link OPMStructuralLinkAggregatorEditPart} while allowing to move them. Therefore
 	 *  we had to override the implementation.
@@ -80,7 +81,5 @@ public class OPMObjectProcessDiagramXYLayoutPolicy extends XYLayoutEditPolicy {
 			}
 		}
 		return getChangeConstraintCommand(request);
-	}
-	
-	
+	}	
 }

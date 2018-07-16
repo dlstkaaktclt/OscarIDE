@@ -3,10 +3,9 @@
 package com.oscar.opm.model.provider;
 
 
+import com.oscar.opm.model.OPMLinkRouterKind;
 import com.oscar.opm.model.OPMPackage;
 import com.oscar.opm.model.OPMProceduralLink;
-import com.oscar.opm.model.OPMProceduralLinkKind;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -92,7 +91,7 @@ public class OPMProceduralLinkItemProvider extends OPMLinkItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		OPMProceduralLinkKind labelValue = ((OPMProceduralLink)object).getKind();
+		OPMLinkRouterKind labelValue = ((OPMProceduralLink)object).getRouterKind();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_OPMProceduralLink_type") :

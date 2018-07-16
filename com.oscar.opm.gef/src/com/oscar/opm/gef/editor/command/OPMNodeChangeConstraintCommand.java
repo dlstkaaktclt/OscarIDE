@@ -23,9 +23,7 @@ public class OPMNodeChangeConstraintCommand extends Command {
 	
 	@Override
 	public void execute() {
-		if(oldConstraint == null) {
-			oldConstraint = node.getConstraints();
-		}
+		oldConstraint = node.getConstraints();
 		node.setConstraints(newConstraint);
 	}
 	

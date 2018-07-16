@@ -17,6 +17,7 @@ import com.oscar.opm.model.OPMLink;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMStructuralLinkAggregator;
+import com.oscar.opm.model.OPMLinkRouterKind;
 
 
 public class OPMNodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
@@ -135,13 +136,8 @@ public class OPMNodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 		}
 		
 		if(aggregatorFound) {
-			OPMLinkCreateCommand linkCreateCommand = new OPMLinkCreateCommand();
-			linkCreateCommand.setSource(aggregatorNode);
-			linkCreateCommand.setTarget(targetNode);
-			linkCreateCommand.setOPD(aggregatorNode.getOpd());
-			linkCreateCommand.setLink(OPMFactory.eINSTANCE.createOPMLink());
-			
-			command = linkCreateCommand;
+			OPMLinkCreateCommand linkCreateCommand = createCreateOPMLinkCreateCommand(aggregatorNode, targetNode, aggregatorNode.getOpd());
+            command = linkCreateCommand;
 		} else {
 			CompoundCommand compoundCommand = new CompoundCommand();
 			OPMNodeCreateCommand createAggregatorCommand = createCreateAggregatorNodeCommand(sourceNode,targetNode,aggregatorNode);
@@ -170,7 +166,9 @@ public class OPMNodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 		command.setSource(source);
 		command.setTarget(target);
 		command.setOPD(opd);
-		command.setLink(OPMFactory.eINSTANCE.createOPMLink());
+		OPMLink link = OPMFactory.eINSTANCE.createOPMLink();
+		link.setRouterKind(OPMLinkRouterKind.MANHATTAN);
+		command.setLink(link);
 		return command;
 	}
 	/**
@@ -191,7 +189,7 @@ public class OPMNodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 	private OPMNodeCreateCommand createCreateAggregatorNodeCommand(OPMNode source,OPMNode target, OPMNode aggregator) {
 		OPMNodeCreateCommand command = new OPMNodeCreateCommand();
 		command.setNode(aggregator);
-		command.setParent(source.getOpd());
+		command.setContainer(source.getContainer());
 		
 		Rectangle sourceConstraints = source.getConstraints();
 		Rectangle targetConstraints = target.getConstraints();

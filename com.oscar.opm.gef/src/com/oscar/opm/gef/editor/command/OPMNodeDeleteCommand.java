@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.gef.commands.Command;
 
+import com.oscar.opm.model.OPMContainer;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMLink;
@@ -14,7 +15,7 @@ import com.oscar.opm.model.OPMLink;
 public class OPMNodeDeleteCommand extends Command {
 	
 	private OPMNode node;
-	private OPMObjectProcessDiagram opd;
+	private OPMContainer container;
 	private List<OPMLink> links;
 	private Map<OPMLink,OPMNode> linkSources;
 	private Map<OPMLink,OPMNode> linkTargets;
@@ -22,13 +23,13 @@ public class OPMNodeDeleteCommand extends Command {
 	@Override
 	public void execute() {
 		detachLinks();
-		node.setOpd(null);
+		node.setContainer(null);
 	}
 	
 	@Override
 	public void undo() {
 		reattachLinks();
-		node.setOpd(opd);
+		node.setContainer(container);
 	}
 	
 	private void detachLinks() {
@@ -50,13 +51,21 @@ public class OPMNodeDeleteCommand extends Command {
 		for(OPMLink link : links) {
 			link.setSource(linkSources.get(link));
 			link.setTarget(linkTargets.get(link));
-			link.setOpd(opd);
+			if(container instanceof OPMObjectProcessDiagram) 
+			{
+				link.setOpd((OPMObjectProcessDiagram)container);
+			}
+			else 
+			{
+				OPMNode containerNode = (OPMNode) container;
+				link.setOpd(containerNode.getOpd());
+			}
 		}
 	}
 	
-	public void setNode(OPMNode node) {
+	public void setNode(final OPMNode node) {
 		this.node = node;
-		this.opd = node.getOpd();
+		this.container = node.getContainer();
 	}
 	
 }

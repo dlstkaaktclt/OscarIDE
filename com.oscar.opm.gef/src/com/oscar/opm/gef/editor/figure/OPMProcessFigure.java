@@ -5,6 +5,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -16,11 +17,19 @@ public class OPMProcessFigure extends Figure implements OPMThingFigure {
 	
 	public OPMProcessFigure() {
 		setLayoutManager(new XYLayout());
-		ellipse = new Ellipse();
-		add(ellipse);
 		nameLabel = new Label();
 		add(nameLabel);
+		ellipse = new Ellipse();
+		ellipse.setFill(false);
+		ellipse.setLayoutManager(new XYLayout());
+		add(ellipse);
 	}
+	
+	@Override
+	public IFigure getContentPane() {
+		return ellipse;
+	}
+	
 	
 	@Override
 	protected void paintFigure(Graphics graphics) {
@@ -49,6 +58,10 @@ public class OPMProcessFigure extends Figure implements OPMThingFigure {
 	public ConnectionAnchor getTargetConnectionAnchor() {
 		return getConnectionAnchor();
 	}
-
+	
+	@Override
+	protected boolean useLocalCoordinates() {
+		return true;
+	}
 	
 }

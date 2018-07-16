@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.oscar.opm.model.OPMLink#getSource <em>Source</em>}</li>
  *   <li>{@link com.oscar.opm.model.OPMLink#getTarget <em>Target</em>}</li>
  *   <li>{@link com.oscar.opm.model.OPMLink#getBendpoints <em>Bendpoints</em>}</li>
+ *   <li>{@link com.oscar.opm.model.OPMLink#getRouterKind <em>Router Kind</em>}</li>
  * </ul>
  *
  * @see com.oscar.opm.model.OPMPackage#getOPMLink()
@@ -125,5 +126,34 @@ public interface OPMLink extends EObject {
 	 * @generated
 	 */
 	EList<Point> getBendpoints();
+
+	/**
+	 * Returns the value of the '<em><b>Router Kind</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.oscar.opm.model.OPMLinkRouterKind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Router Kind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Router Kind</em>' attribute.
+	 * @see com.oscar.opm.model.OPMLinkRouterKind
+	 * @see #setRouterKind(OPMLinkRouterKind)
+	 * @see com.oscar.opm.model.OPMPackage#getOPMLink_RouterKind()
+	 * @model
+	 * @generated
+	 */
+	OPMLinkRouterKind getRouterKind();
+
+	/**
+	 * Sets the value of the '{@link com.oscar.opm.model.OPMLink#getRouterKind <em>Router Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Router Kind</em>' attribute.
+	 * @see com.oscar.opm.model.OPMLinkRouterKind
+	 * @see #getRouterKind()
+	 * @generated
+	 */
+	void setRouterKind(OPMLinkRouterKind value);
 
 } // OPMLink

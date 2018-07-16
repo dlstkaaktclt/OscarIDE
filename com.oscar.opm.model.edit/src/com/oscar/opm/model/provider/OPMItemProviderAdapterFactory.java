@@ -72,6 +72,29 @@ public class OPMItemProviderAdapterFactory extends OPMAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.oscar.opm.model.OPMContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OPMContainerItemProvider opmContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.oscar.opm.model.OPMContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOPMContainerAdapter() {
+		if (opmContainerItemProvider == null) {
+			opmContainerItemProvider = new OPMContainerItemProvider(this);
+		}
+
+		return opmContainerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.oscar.opm.model.OPMObjectProcessDiagram} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,14 +377,15 @@ public class OPMItemProviderAdapterFactory extends OPMAdapterFactory implements 
 	 * @generated
 	 */
 	public void dispose() {
+		if (opmContainerItemProvider != null) opmContainerItemProvider.dispose();
 		if (opmObjectProcessDiagramItemProvider != null) opmObjectProcessDiagramItemProvider.dispose();
+		if (opmNodeItemProvider != null) opmNodeItemProvider.dispose();
+		if (opmThingItemProvider != null) opmThingItemProvider.dispose();
 		if (opmObjectItemProvider != null) opmObjectItemProvider.dispose();
 		if (opmProcessItemProvider != null) opmProcessItemProvider.dispose();
-		if (opmLinkItemProvider != null) opmLinkItemProvider.dispose();
-		if (opmThingItemProvider != null) opmThingItemProvider.dispose();
 		if (opmStructuralLinkAggregatorItemProvider != null) opmStructuralLinkAggregatorItemProvider.dispose();
+		if (opmLinkItemProvider != null) opmLinkItemProvider.dispose();
 		if (opmProceduralLinkItemProvider != null) opmProceduralLinkItemProvider.dispose();
-		if (opmNodeItemProvider != null) opmNodeItemProvider.dispose();
 	}
 
 }
