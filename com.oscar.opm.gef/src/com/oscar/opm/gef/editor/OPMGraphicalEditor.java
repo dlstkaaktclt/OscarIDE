@@ -29,6 +29,7 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import com.oscar.opm.gef.action.ResizeToContentsAction;
 import com.oscar.opm.gef.editor.part.OPMEditPartFactory;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMPackage;
@@ -61,7 +62,17 @@ public class OPMGraphicalEditor extends GraphicalEditorWithFlyoutPalette
 		super.configureGraphicalViewer();
 		getGraphicalViewer().setEditPartFactory(new OPMEditPartFactory());
         getActionRegistry().registerAction(new ToggleGridAction(getGraphicalViewer())); 
-        getActionRegistry().registerAction(new ToggleSnapToGeometryAction(getGraphicalViewer()));      
+        getActionRegistry().registerAction(new ToggleSnapToGeometryAction(getGraphicalViewer()));
+        getGraphicalViewer().setContextMenu(new OPMGraphicalEditorContextMenuProvider(getGraphicalViewer(),getActionRegistry()));
+	}
+	
+	@Override
+	protected void createActions() {
+		ResizeToContentsAction action = new ResizeToContentsAction(this);
+		getActionRegistry().registerAction(action);
+		getSelectionActions().add(action.getId());
+		
+		super.createActions();
 	}
 	
 	@Override
