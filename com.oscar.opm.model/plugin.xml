@@ -14,4 +14,26 @@
             genModel="model/opm.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated opm -->
+      <parser
+            contentTypeIdentifier="xml"
+            class="org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated opm -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="xml"
+            id="xml"
+            name="%_UI_OPM_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="www.rubis.com"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
 </plugin>

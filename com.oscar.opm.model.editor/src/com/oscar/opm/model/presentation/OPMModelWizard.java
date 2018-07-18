@@ -76,6 +76,7 @@ import com.oscar.opm.model.provider.OPMEditPlugin;
 
 import org.eclipse.core.runtime.Path;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 
@@ -243,7 +244,7 @@ public class OPMModelWizard extends Wizard implements INewWizard {
 
 							// Create a resource for this file.
 							//
-							Resource resource = resourceSet.createResource(fileURI);
+							Resource resource = resourceSet.createResource(fileURI, OPMPackage.eCONTENT_TYPE);
 
 							// Add the initial model object to the contents.
 							//
@@ -289,7 +290,9 @@ public class OPMModelWizard extends Wizard implements INewWizard {
 			try {
 				page.openEditor
 					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+					 workbench.getEditorRegistry().getDefaultEditor
+					 	(modelFile.getFullPath().toString(),
+					 	 Platform.getContentTypeManager().getContentType(OPMPackage.eCONTENT_TYPE)).getId());					 	 
 			}
 			catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(), OPMEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());

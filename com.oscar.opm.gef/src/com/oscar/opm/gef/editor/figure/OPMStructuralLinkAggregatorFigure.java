@@ -1,5 +1,6 @@
 package com.oscar.opm.gef.editor.figure;
 
+
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -9,6 +10,7 @@ import org.eclipse.draw2d.Orientable;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.widgets.Display;
 
 import com.oscar.opm.model.OPMStructuralLinkAggregatorKind;
 import com.oscar.opm.model.OPMStructuralLinkAggregator;
@@ -95,12 +97,25 @@ public class OPMStructuralLinkAggregatorFigure extends Figure implements OPMNode
 			bottomAnchor = new AbstractConnectionAnchor(this) {
 				@Override
 				public Point getLocation(Point reference) {
+					
+					Display display = Display.getDefault();
+					org.eclipse.swt.graphics.Rectangle rect = display.getBounds();
+					Point point = new Point(rect.x,rect.y);
+					
+					/*
+					Point point = getGraphicalViewer().getControl().toControl(display.getCursorLocation());
+					FigureCanvas figureCanvas = (FigureCanvas)getGraphicalViewer().getControl();
+					org.eclipse.draw2d.geometry.Point location = figureCanvas.getViewport().getViewLocation();
+					*/
+					
 					Point p = new Point();
 					Rectangle ownerBounds = getOwner().getBounds().getCopy();
 					p.x = ownerBounds.x + ownerBounds.width/2;
 					p.y = ownerBounds.y + ownerBounds.height;
+
 					return p;
 				}
+				
 			};
 		}
 		return bottomAnchor;
@@ -115,5 +130,6 @@ public class OPMStructuralLinkAggregatorFigure extends Figure implements OPMNode
 	public ConnectionAnchor getTargetConnectionAnchor() {
 		return getTopAnchor();
 	}
+	
 
 }

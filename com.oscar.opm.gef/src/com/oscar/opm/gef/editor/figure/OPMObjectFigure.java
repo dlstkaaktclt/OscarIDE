@@ -11,7 +11,7 @@ import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 
-public class OPMObjectFigure extends Figure implements OPMThingFigure {
+public class OPMObjectFigure extends OPMThingFigure {
 	private Label nameLabel;
 	private RectangleFigure rectangle;
 	private ConnectionAnchor connectionAnchor;
@@ -58,11 +58,6 @@ public class OPMObjectFigure extends Figure implements OPMThingFigure {
 	
 	public ConnectionAnchor getTargetConnectionAnchor() {
 		return getConnectionAnchor();
-	}
-	
-	@Override
-	protected boolean useLocalCoordinates() {
-		return true;
 	}
 
 }

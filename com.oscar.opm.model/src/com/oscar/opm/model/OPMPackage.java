@@ -52,6 +52,14 @@ public interface OPMPackage extends EPackage {
 	String eNS_PREFIX = "opm";
 
 	/**
+	 * The package content type ID.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eCONTENT_TYPE = "xml";
+
+	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,13 +315,22 @@ public interface OPMPackage extends EPackage {
 	int OPM_THING__NAME = OPM_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_THING__DESCRIPTION = OPM_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Thing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPM_THING_FEATURE_COUNT = OPM_NODE_FEATURE_COUNT + 1;
+	int OPM_THING_FEATURE_COUNT = OPM_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Structural Links</em>' operation.
@@ -414,6 +431,15 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_OBJECT__NAME = OPM_THING__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_OBJECT__DESCRIPTION = OPM_THING__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -523,6 +549,15 @@ public interface OPMPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPM_PROCESS__NAME = OPM_THING__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPM_PROCESS__DESCRIPTION = OPM_THING__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Process</em>' class.
@@ -1034,6 +1069,17 @@ public interface OPMPackage extends EPackage {
 	EAttribute getOPMThing_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.oscar.opm.model.OPMThing#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.oscar.opm.model.OPMThing#getDescription()
+	 * @see #getOPMThing()
+	 * @generated
+	 */
+	EAttribute getOPMThing_Description();
+
+	/**
 	 * Returns the meta object for class '{@link com.oscar.opm.model.OPMStructuralLinkAggregator <em>Structural Link Aggregator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1357,6 +1403,14 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPM_THING__NAME = eINSTANCE.getOPMThing_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPM_THING__DESCRIPTION = eINSTANCE.getOPMThing_Description();
 
 		/**
 		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OPMStructuralLinkAggregatorImpl <em>Structural Link Aggregator</em>}' class.

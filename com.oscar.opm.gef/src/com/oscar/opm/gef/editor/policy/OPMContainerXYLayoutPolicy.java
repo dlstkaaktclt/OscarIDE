@@ -19,6 +19,10 @@ import com.oscar.opm.gef.editor.policy.OPMContainerXYLayoutPolicy;
 import com.oscar.opm.gef.editor.command.OPMNodeCreateCommand;
 import com.oscar.opm.gef.editor.command.OPMNodeChangeConstraintCommand;
 
+
+
+
+
 public class OPMContainerXYLayoutPolicy extends XYLayoutEditPolicy {
 	
 	private static final Dimension DEFAULT_THING_DIMENSION = new Dimension(50,50);

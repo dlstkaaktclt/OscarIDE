@@ -60,6 +60,8 @@ public abstract class OPMThingEditPart extends OPMNodeEditPart implements NodeEd
 		
 		figure.getNameLabel().setText(model.getName());
 		parent.setLayoutConstraint(this, figure, model.getConstraints());
+		
+		figure.setTooltipText(model.getDescription());
 	}
 	
 	

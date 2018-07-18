@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.oscar.opm.model.impl.OPMThingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.oscar.opm.model.impl.OPMThingImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +42,26 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,11 +108,34 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OPMPackage.OPM_THING__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OPMPackage.OPM_THING__NAME:
 				return getName();
+			case OPMPackage.OPM_THING__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,6 +152,9 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 			case OPMPackage.OPM_THING__NAME:
 				setName((String)newValue);
 				return;
+			case OPMPackage.OPM_THING__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,6 +170,9 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 			case OPMPackage.OPM_THING__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case OPMPackage.OPM_THING__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,6 +187,8 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 		switch (featureID) {
 			case OPMPackage.OPM_THING__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case OPMPackage.OPM_THING__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,6 +205,8 @@ public class OPMThingImpl extends OPMNodeImpl implements OPMThing {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

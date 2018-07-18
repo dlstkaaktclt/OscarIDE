@@ -1,1 +1,3 @@
 connect to real Oscar Project. (model, graphics, etc...)
+
+make text-editing process in editor

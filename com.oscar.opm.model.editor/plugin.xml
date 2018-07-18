@@ -28,9 +28,10 @@
             id="com.oscar.opm.model.presentation.OPMEditorID"
             name="%_UI_OPMEditor_label"
             icon="icons/full/obj16/OPMModelFile.gif"
-            extensions="opm"
             class="com.oscar.opm.model.presentation.OPMEditor"
             contributorClass="com.oscar.opm.model.presentation.OPMActionBarContributor">
+         <contentTypeBinding contentTypeId="com.oscar.opm.model.xml"/>
       </editor>
    </extension>
+
 </plugin>

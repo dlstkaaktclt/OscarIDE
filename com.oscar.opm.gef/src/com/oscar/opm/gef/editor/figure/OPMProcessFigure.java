@@ -10,7 +10,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
 
-public class OPMProcessFigure extends Figure implements OPMThingFigure {
+public class OPMProcessFigure extends OPMThingFigure {
 	private Label nameLabel;
 	private Ellipse ellipse;
 	private ConnectionAnchor connectionAnchor;
@@ -57,11 +57,6 @@ public class OPMProcessFigure extends Figure implements OPMThingFigure {
 	
 	public ConnectionAnchor getTargetConnectionAnchor() {
 		return getConnectionAnchor();
-	}
-	
-	@Override
-	protected boolean useLocalCoordinates() {
-		return true;
 	}
 	
 }
