@@ -29,6 +29,7 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import com.oscar.opm.gef.action.OPMCreateObjectAction;
 import com.oscar.opm.gef.action.ResizeToContentsAction;
 import com.oscar.opm.gef.editor.part.OPMEditPartFactory;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
@@ -68,11 +69,16 @@ public class OPMGraphicalEditor extends GraphicalEditorWithFlyoutPalette
 	
 	@Override
 	protected void createActions() {
-		ResizeToContentsAction action = new ResizeToContentsAction(this);
-		getActionRegistry().registerAction(action);
-		getSelectionActions().add(action.getId());
-		
 		super.createActions();
+		
+		// create action for contextMenu.
+		/*
+		ResizeToContentsAction resizeAction = new ResizeToContentsAction(this);
+		getActionRegistry().registerAction(resizeAction);
+		getSelectionActions().add(resizeAction.getId());
+		OPMCreateObjectAction createAction = new OPMCreateObjectAction(this);
+		getActionRegistry().registerAction(createAction);
+		*/
 	}
 	
 	@Override
@@ -239,4 +245,17 @@ public class OPMGraphicalEditor extends GraphicalEditorWithFlyoutPalette
 			source.setPropertyValue(id, value);
 		}
 	}
+	/*
+	 
+	 
+	/**
+	 * Override superclass's method (protected) to public
+	 * to provide Editdomain to {@link OPMCreateObjectAction}
+	 
+	@Override
+	public DefaultEditDomain getEditDomain() {
+		return super.getEditDomain();
+	}
+	
+	*/
 }

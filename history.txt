@@ -1,0 +1,2 @@
+18/07/23 : turn off containment functionality because we don't use this. if you want to use this functionality, 
+        please check OPMContainerXYLayoutPolicy.java 's getCreateCommand() method in com.oscar.opm.gef.editor.policy package.

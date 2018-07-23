@@ -13,6 +13,7 @@ import org.eclipse.gef.requests.CreateRequest;
 import com.oscar.opm.model.OPMContainer;
 import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMObject;
+import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMProcess;
 import com.oscar.opm.gef.editor.part.OPMStructuralLinkAggregatorEditPart;
 import com.oscar.opm.gef.editor.policy.OPMContainerXYLayoutPolicy;
@@ -50,7 +51,11 @@ public class OPMContainerXYLayoutPolicy extends XYLayoutEditPolicy {
 			OPMNodeCreateCommand command = new OPMNodeCreateCommand();
 			Rectangle constraints = (Rectangle) getConstraintFor(request);
 			command.setConstraints(new Rectangle(constraints.getLocation(),DEFAULT_THING_DIMENSION));
-			command.setContainer((OPMContainer) getHost().getModel());
+			if(getHost().getModel() instanceof OPMObjectProcessDiagram) command.setContainer((OPMContainer) getHost().getModel()); 
+			else command.setContainer((OPMContainer) ((OPMNode) getHost().getModel()).getOpd());
+			//command.setContainer((OPMContainer) getHost().getModel());  
+			// <- make contained object. we don't have to use this functionality, so I commentlize this code. if you want use this,
+			// uncommentlize this code and delete if~else code right above.
 			command.setNode((OPMNode)(request.getNewObject()));
 			retVal = command;
 		}

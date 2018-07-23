@@ -73,6 +73,12 @@ public class OPMStructuralLinkAggregatorFigure extends Figure implements OPMNode
      * Create a {@link ConnectionAnchor} that is located at the center-top of the figure.
      * @return a {@link ConnectionAnchor} at the center-top of the figure.
      */
+	
+	/*TODO - fix bugs with getTopAnchor() and getBottomAnchor().
+	/ they have bugs with AbstractConnectionAnchor's getLocation method
+	/ which should return relative coordinates to left-top corner's coordinate of viewer,
+	/ but current implementation returns absolute coordinates from getOwner().getbounds()
+	/ How to get left-top corner's coordinate of viewer in Figure object..? */
 	private ConnectionAnchor getTopAnchor() {
 		if(topAnchor == null) {
 			topAnchor = new AbstractConnectionAnchor(this) {

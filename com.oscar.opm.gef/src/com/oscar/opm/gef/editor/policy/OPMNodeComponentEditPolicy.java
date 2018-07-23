@@ -111,10 +111,15 @@ public class OPMNodeComponentEditPolicy extends ComponentEditPolicy {
 		return command;
 	}
 	
+	
+	// for now we don't use ResizeToContentAction, I change this code to Comment.
+	// if you want to use that action, uncommentrize this code.
+	/* 
+	
 	/**
      * <p>Extends the parent implementation by handling incoming REQ_RESIZE_TO_CONTENTS requests.</p>
      * <p>The parent implementation {@inheritDoc}</p>
-     */
+     
     @Override
     public Command getCommand(Request request) {
     	if(request.getType().equals(ResizeToContentsAction.REQ_RESIZE_TO_CONTENTS)) {
@@ -123,5 +128,5 @@ public class OPMNodeComponentEditPolicy extends ComponentEditPolicy {
     	return super.getCommand(request);
     }
 	
-	
+	*/
 }
