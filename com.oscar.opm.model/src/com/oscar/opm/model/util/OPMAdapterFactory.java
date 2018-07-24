@@ -104,6 +104,10 @@ public class OPMAdapterFactory extends AdapterFactoryImpl {
 				return createOPMProceduralLinkAdapter();
 			}
 			@Override
+			public Adapter caseOscarCode(OscarCode object) {
+				return createOscarCodeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -232,6 +236,20 @@ public class OPMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOPMProceduralLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.oscar.opm.model.OscarCode <em>Oscar Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.oscar.opm.model.OscarCode
+	 * @generated
+	 */
+	public Adapter createOscarCodeAdapter() {
 		return null;
 	}
 

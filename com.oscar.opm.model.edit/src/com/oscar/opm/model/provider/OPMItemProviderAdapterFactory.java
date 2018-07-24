@@ -256,6 +256,29 @@ public class OPMItemProviderAdapterFactory extends OPMAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.oscar.opm.model.OscarCode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OscarCodeItemProvider oscarCodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.oscar.opm.model.OscarCode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOscarCodeAdapter() {
+		if (oscarCodeItemProvider == null) {
+			oscarCodeItemProvider = new OscarCodeItemProvider(this);
+		}
+
+		return oscarCodeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.oscar.opm.model.OPMNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class OPMItemProviderAdapterFactory extends OPMAdapterFactory implements 
 		if (opmStructuralLinkAggregatorItemProvider != null) opmStructuralLinkAggregatorItemProvider.dispose();
 		if (opmLinkItemProvider != null) opmLinkItemProvider.dispose();
 		if (opmProceduralLinkItemProvider != null) opmProceduralLinkItemProvider.dispose();
+		if (oscarCodeItemProvider != null) oscarCodeItemProvider.dispose();
 	}
 
 }

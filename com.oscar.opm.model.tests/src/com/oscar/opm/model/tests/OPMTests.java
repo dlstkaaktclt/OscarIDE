@@ -36,6 +36,7 @@ public class OPMTests extends TestSuite {
 		suite.addTestSuite(OPMObjectTest.class);
 		suite.addTestSuite(OPMProcessTest.class);
 		suite.addTestSuite(OPMStructuralLinkAggregatorTest.class);
+		suite.addTestSuite(OscarCodeTest.class);
 		return suite;
 	}
 

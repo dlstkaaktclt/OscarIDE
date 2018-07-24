@@ -4,6 +4,7 @@ package com.oscar.opm.model.impl;
 
 import com.oscar.opm.model.*;
 
+import java.io.File;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
@@ -69,6 +70,7 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 			case OPMPackage.OPM_STRUCTURAL_LINK_AGGREGATOR: return createOPMStructuralLinkAggregator();
 			case OPMPackage.OPM_LINK: return createOPMLink();
 			case OPMPackage.OPM_PROCEDURAL_LINK: return createOPMProceduralLink();
+			case OPMPackage.OSCAR_CODE: return createOscarCode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,8 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 				return createRectangleFromString(eDataType, initialValue);
 			case OPMPackage.POINT:
 				return createPointFromString(eDataType, initialValue);
+			case OPMPackage.FILE:
+				return createFileFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -115,6 +119,8 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 				return convertRectangleToString(eDataType, instanceValue);
 			case OPMPackage.POINT:
 				return convertPointToString(eDataType, instanceValue);
+			case OPMPackage.FILE:
+				return convertFileToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -198,6 +204,16 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 	public OPMProceduralLink createOPMProceduralLink() {
 		OPMProceduralLinkImpl opmProceduralLink = new OPMProceduralLinkImpl();
 		return opmProceduralLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OscarCode createOscarCode() {
+		OscarCodeImpl oscarCode = new OscarCodeImpl();
+		return oscarCode;
 	}
 
 	/**
@@ -338,6 +354,24 @@ public class OPMFactoryImpl extends EFactoryImpl implements OPMFactory {
 		}
 		Point point = (Point) instanceValue;
 		return point.x + "," + point.y;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public File createFileFromString(EDataType eDataType, String initialValue) {
+		return new File(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String convertFileToString(EDataType eDataType, Object instanceValue) {
+		return ((File) instanceValue).getAbsolutePath();
 	}
 
 	/**

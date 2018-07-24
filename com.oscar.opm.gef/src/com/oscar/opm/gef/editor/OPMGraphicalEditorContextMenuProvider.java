@@ -9,6 +9,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.actions.ActionFactory;
 
 import com.oscar.opm.gef.action.OPMCreateObjectAction;
+import com.oscar.opm.gef.action.OscarCodeCreateAction;
+import com.oscar.opm.gef.action.OscarCodeModifyAction;
 import com.oscar.opm.gef.action.ResizeToContentsAction;
 
 public class OPMGraphicalEditorContextMenuProvider extends ContextMenuProvider {
@@ -30,6 +32,10 @@ public class OPMGraphicalEditorContextMenuProvider extends ContextMenuProvider {
 		menu.appendToGroup(GEFActionConstants.GROUP_UNDO, action);
 		action = getActionRegistry().getAction(ActionFactory.REDO.getId());
 		menu.appendToGroup(GEFActionConstants.GROUP_UNDO, action);
+		action = getActionRegistry().getAction(OscarCodeCreateAction.ID);
+		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
+		action = getActionRegistry().getAction(OscarCodeModifyAction.MODIFY_CODE);
+		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
 		// in graphical Editor, we register Action to actionRegistry. Action has it's id so we can use it by id.
 		// for now, we don't use these menu.
 		/*

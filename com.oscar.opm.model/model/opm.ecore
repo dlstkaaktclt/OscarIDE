@@ -67,4 +67,9 @@
     <eLiterals name="BENDPOINT" literal="Bendpoint"/>
     <eLiterals name="MANHATTAN" value="1" literal="Manhattan"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OscarCode" eSuperTypes="#//OPMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codefile" eType="#//File"
+        defaultValueLiteral=".deafalut.txt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="File" instanceClassName="java.io.File"/>
 </ecore:EPackage>

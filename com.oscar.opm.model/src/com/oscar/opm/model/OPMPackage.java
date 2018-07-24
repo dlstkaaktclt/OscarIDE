@@ -869,6 +869,133 @@ public interface OPMPackage extends EPackage {
 	int OPM_PROCEDURAL_LINK_OPERATION_COUNT = OPM_LINK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.oscar.opm.model.impl.OscarCodeImpl <em>Oscar Code</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.oscar.opm.model.impl.OscarCodeImpl
+	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOscarCode()
+	 * @generated
+	 */
+	int OSCAR_CODE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__NODES = OPM_OBJECT__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__INCOMING_LINKS = OPM_OBJECT__INCOMING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__OUTGOING_LINKS = OPM_OBJECT__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__CONTAINER = OPM_OBJECT__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__CONSTRAINTS = OPM_OBJECT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__NAME = OPM_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__DESCRIPTION = OPM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Codefile</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE__CODEFILE = OPM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Oscar Code</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE_FEATURE_COUNT = OPM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Structural Links</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE___GET_OUTGOING_STRUCTURAL_LINKS = OPM_OBJECT___GET_OUTGOING_STRUCTURAL_LINKS;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Structural Links</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE___GET_INCOMING_STRUCTURAL_LINKS = OPM_OBJECT___GET_INCOMING_STRUCTURAL_LINKS;
+
+	/**
+	 * The operation id for the '<em>Get Opd</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE___GET_OPD = OPM_OBJECT___GET_OPD;
+
+	/**
+	 * The number of operations of the '<em>Oscar Code</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OSCAR_CODE_OPERATION_COUNT = OPM_OBJECT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.OPMStructuralLinkAggregatorKind <em>Structural Link Aggregator Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -876,7 +1003,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMStructuralLinkAggregatorKind()
 	 * @generated
 	 */
-	int OPM_STRUCTURAL_LINK_AGGREGATOR_KIND = 9;
+	int OPM_STRUCTURAL_LINK_AGGREGATOR_KIND = 10;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.OPMProceduralLinkKind <em>Procedural Link Kind</em>}' enum.
@@ -886,7 +1013,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMProceduralLinkKind()
 	 * @generated
 	 */
-	int OPM_PROCEDURAL_LINK_KIND = 10;
+	int OPM_PROCEDURAL_LINK_KIND = 11;
 
 	/**
 	 * The meta object id for the '{@link com.oscar.opm.model.OPMLinkRouterKind <em>Link Router Kind</em>}' enum.
@@ -896,7 +1023,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOPMLinkRouterKind()
 	 * @generated
 	 */
-	int OPM_LINK_ROUTER_KIND = 11;
+	int OPM_LINK_ROUTER_KIND = 12;
 
 	/**
 	 * The meta object id for the '<em>Rectangle</em>' data type.
@@ -906,7 +1033,7 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 12;
+	int RECTANGLE = 13;
 
 
 	/**
@@ -917,7 +1044,18 @@ public interface OPMPackage extends EPackage {
 	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 13;
+	int POINT = 14;
+
+
+	/**
+	 * The meta object id for the '<em>File</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.File
+	 * @see com.oscar.opm.model.impl.OPMPackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 15;
 
 
 	/**
@@ -1122,6 +1260,27 @@ public interface OPMPackage extends EPackage {
 	EAttribute getOPMProceduralLink_Kind();
 
 	/**
+	 * Returns the meta object for class '{@link com.oscar.opm.model.OscarCode <em>Oscar Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Oscar Code</em>'.
+	 * @see com.oscar.opm.model.OscarCode
+	 * @generated
+	 */
+	EClass getOscarCode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.oscar.opm.model.OscarCode#getCodefile <em>Codefile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Codefile</em>'.
+	 * @see com.oscar.opm.model.OscarCode#getCodefile()
+	 * @see #getOscarCode()
+	 * @generated
+	 */
+	EAttribute getOscarCode_Codefile();
+
+	/**
 	 * Returns the meta object for class '{@link com.oscar.opm.model.OPMNode <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,6 +1415,17 @@ public interface OPMPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getPoint();
+
+	/**
+	 * Returns the meta object for data type '{@link java.io.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>File</em>'.
+	 * @see java.io.File
+	 * @model instanceClass="java.io.File"
+	 * @generated
+	 */
+	EDataType getFile();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1449,6 +1619,24 @@ public interface OPMPackage extends EPackage {
 		EAttribute OPM_PROCEDURAL_LINK__KIND = eINSTANCE.getOPMProceduralLink_Kind();
 
 		/**
+		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OscarCodeImpl <em>Oscar Code</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.oscar.opm.model.impl.OscarCodeImpl
+		 * @see com.oscar.opm.model.impl.OPMPackageImpl#getOscarCode()
+		 * @generated
+		 */
+		EClass OSCAR_CODE = eINSTANCE.getOscarCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Codefile</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OSCAR_CODE__CODEFILE = eINSTANCE.getOscarCode_Codefile();
+
+		/**
 		 * The meta object literal for the '{@link com.oscar.opm.model.impl.OPMNodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1563,6 +1751,16 @@ public interface OPMPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '<em>File</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.File
+		 * @see com.oscar.opm.model.impl.OPMPackageImpl#getFile()
+		 * @generated
+		 */
+		EDataType FILE = eINSTANCE.getFile();
 
 	}
 

@@ -30,6 +30,8 @@ import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.oscar.opm.gef.action.OPMCreateObjectAction;
+import com.oscar.opm.gef.action.OscarCodeCreateAction;
+import com.oscar.opm.gef.action.OscarCodeModifyAction;
 import com.oscar.opm.gef.action.ResizeToContentsAction;
 import com.oscar.opm.gef.editor.part.OPMEditPartFactory;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
@@ -71,6 +73,10 @@ public class OPMGraphicalEditor extends GraphicalEditorWithFlyoutPalette
 	protected void createActions() {
 		super.createActions();
 		
+		OscarCodeCreateAction createAction = new OscarCodeCreateAction(this);
+		getActionRegistry().registerAction(createAction);
+		OscarCodeModifyAction modifyAction = new OscarCodeModifyAction(this);
+		getActionRegistry().registerAction(modifyAction);
 		// create action for contextMenu.
 		/*
 		ResizeToContentsAction resizeAction = new ResizeToContentsAction(this);

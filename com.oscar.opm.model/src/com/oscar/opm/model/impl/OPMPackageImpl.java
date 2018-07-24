@@ -17,6 +17,8 @@ import com.oscar.opm.model.OPMStructuralLinkAggregator;
 import com.oscar.opm.model.OPMStructuralLinkAggregatorKind;
 import com.oscar.opm.model.OPMThing;
 
+import com.oscar.opm.model.OscarCode;
+import java.io.File;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
@@ -98,6 +100,13 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass oscarCodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass opmNodeEClass = null;
 
 	/**
@@ -134,6 +143,13 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 	 * @generated
 	 */
 	private EDataType pointEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType fileEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -372,6 +388,24 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOscarCode() {
+		return oscarCodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOscarCode_Codefile() {
+		return (EAttribute)oscarCodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOPMNode() {
 		return opmNodeEClass;
 	}
@@ -489,6 +523,15 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getFile() {
+		return fileEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OPMFactory getOPMFactory() {
 		return (OPMFactory)getEFactoryInstance();
 	}
@@ -548,6 +591,9 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 		opmProceduralLinkEClass = createEClass(OPM_PROCEDURAL_LINK);
 		createEAttribute(opmProceduralLinkEClass, OPM_PROCEDURAL_LINK__KIND);
 
+		oscarCodeEClass = createEClass(OSCAR_CODE);
+		createEAttribute(oscarCodeEClass, OSCAR_CODE__CODEFILE);
+
 		// Create enums
 		opmStructuralLinkAggregatorKindEEnum = createEEnum(OPM_STRUCTURAL_LINK_AGGREGATOR_KIND);
 		opmProceduralLinkKindEEnum = createEEnum(OPM_PROCEDURAL_LINK_KIND);
@@ -556,6 +602,7 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 		// Create data types
 		rectangleEDataType = createEDataType(RECTANGLE);
 		pointEDataType = createEDataType(POINT);
+		fileEDataType = createEDataType(FILE);
 	}
 
 	/**
@@ -593,6 +640,7 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 		opmProcessEClass.getESuperTypes().add(this.getOPMThing());
 		opmStructuralLinkAggregatorEClass.getESuperTypes().add(this.getOPMNode());
 		opmProceduralLinkEClass.getESuperTypes().add(this.getOPMLink());
+		oscarCodeEClass.getESuperTypes().add(this.getOPMObject());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(opmContainerEClass, OPMContainer.class, "OPMContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -634,6 +682,9 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 		initEClass(opmProceduralLinkEClass, OPMProceduralLink.class, "OPMProceduralLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOPMProceduralLink_Kind(), this.getOPMProceduralLinkKind(), "kind", null, 0, 1, OPMProceduralLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(oscarCodeEClass, OscarCode.class, "OscarCode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOscarCode_Codefile(), this.getFile(), "codefile", ".deafalut.txt", 0, 1, OscarCode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(opmStructuralLinkAggregatorKindEEnum, OPMStructuralLinkAggregatorKind.class, "OPMStructuralLinkAggregatorKind");
 		addEEnumLiteral(opmStructuralLinkAggregatorKindEEnum, OPMStructuralLinkAggregatorKind.AGGREGATION);
@@ -654,6 +705,7 @@ public class OPMPackageImpl extends EPackageImpl implements OPMPackage {
 		// Initialize data types
 		initEDataType(rectangleEDataType, Rectangle.class, "Rectangle", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(pointEDataType, Point.class, "Point", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(fileEDataType, File.class, "File", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -172,6 +172,11 @@ public class OPMContainerItemProvider
 			(createChildParameter
 				(OPMPackage.Literals.OPM_CONTAINER__NODES,
 				 OPMFactory.eINSTANCE.createOPMStructuralLinkAggregator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OPMPackage.Literals.OPM_CONTAINER__NODES,
+				 OPMFactory.eINSTANCE.createOscarCode()));
 	}
 
 	/**

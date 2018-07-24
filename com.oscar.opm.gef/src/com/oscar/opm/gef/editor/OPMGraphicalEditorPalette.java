@@ -15,10 +15,12 @@ import com.oscar.opm.gef.editor.factory.OPMLinkFactory;
 import com.oscar.opm.gef.editor.factory.OPMObjectFactory;
 import com.oscar.opm.gef.editor.factory.OPMProcessFactory;
 import com.oscar.opm.gef.editor.factory.OPMResultLinkFactory;
+import com.oscar.opm.gef.editor.factory.OscarCodeFactory;
 import com.oscar.opm.gef.editor.factory.OPMAggregationStructuralLinkAggregatorFactory;
 import com.oscar.opm.gef.editor.factory.OPMExhibitionStructuralLinkAggregatorFactory;
 import com.oscar.opm.gef.editor.factory.OPMGeneralizationStructuralLinkAggregatorFactory;
 import com.oscar.opm.gef.editor.tool.CreationAndDirectEditTool;
+import com.oscar.opm.gef.editor.tool.FileCreationTool;
 
 public class OPMGraphicalEditorPalette extends PaletteRoot {
 
@@ -32,6 +34,7 @@ public class OPMGraphicalEditorPalette extends PaletteRoot {
 		addOPMLinkTool();
 		addOPMProceduralLinkTools();
 		addOPMStructuralLinkTools();
+		addOscarCodeCreationTool();
 	}
 	
 	private void addSelectionTool() {
@@ -83,6 +86,12 @@ public class OPMGraphicalEditorPalette extends PaletteRoot {
 		entry = new ConnectionCreationToolEntry("Exhibition","Create a new Exhibition link",new OPMExhibitionStructuralLinkAggregatorFactory(),null,null);
 		group.add(entry);
 		entry = new ConnectionCreationToolEntry("Generalization","Create a new Generalization link",new OPMGeneralizationStructuralLinkAggregatorFactory(),null,null);
+		group.add(entry);
+	}
+	
+	private void addOscarCodeCreationTool() {
+		CreationToolEntry entry = new CreationToolEntry("OscarCode","Create a new Code",new OscarCodeFactory(),null,null);
+		entry.setToolClass(FileCreationTool.class);
 		group.add(entry);
 	}
 	

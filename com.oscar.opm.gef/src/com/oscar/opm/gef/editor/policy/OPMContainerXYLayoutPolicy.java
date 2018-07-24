@@ -15,13 +15,12 @@ import com.oscar.opm.model.OPMNode;
 import com.oscar.opm.model.OPMObject;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import com.oscar.opm.model.OPMProcess;
+import com.oscar.opm.model.OscarCode;
 import com.oscar.opm.gef.editor.part.OPMStructuralLinkAggregatorEditPart;
 import com.oscar.opm.gef.editor.policy.OPMContainerXYLayoutPolicy;
 import com.oscar.opm.gef.editor.command.OPMNodeCreateCommand;
+import com.oscar.opm.gef.editor.command.OscarCodeFileLocateCommand;
 import com.oscar.opm.gef.editor.command.OPMNodeChangeConstraintCommand;
-
-
-
 
 
 public class OPMContainerXYLayoutPolicy extends XYLayoutEditPolicy {
@@ -47,20 +46,29 @@ public class OPMContainerXYLayoutPolicy extends XYLayoutEditPolicy {
 	protected Command getCreateCommand(CreateRequest request) 
 	{
 		Command retVal = null;
-		if(request.getNewObjectType().equals(OPMObject.class) || request.getNewObjectType().equals(OPMProcess.class)){
-			OPMNodeCreateCommand command = new OPMNodeCreateCommand();
-			Rectangle constraints = (Rectangle) getConstraintFor(request);
-			command.setConstraints(new Rectangle(constraints.getLocation(),DEFAULT_THING_DIMENSION));
-			if(getHost().getModel() instanceof OPMObjectProcessDiagram) command.setContainer((OPMContainer) getHost().getModel()); 
-			else command.setContainer((OPMContainer) ((OPMNode) getHost().getModel()).getOpd());
-			//command.setContainer((OPMContainer) getHost().getModel());  
-			// <- make contained object. we don't have to use this functionality, so I commentlize this code. if you want use this,
-			// uncommentlize this code and delete if~else code right above.
-			command.setNode((OPMNode)(request.getNewObject()));
-			retVal = command;
+		if(request.getNewObjectType().equals(OscarCode.class)) {
+			retVal = getNodeCreateCommand(request);
+		}
+		else if(request.getNewObjectType().equals(OPMObject.class) || request.getNewObjectType().equals(OPMProcess.class)){
+			retVal = getNodeCreateCommand(request);
 		}
 		return retVal;
 	}
+	
+	private Command getNodeCreateCommand(CreateRequest request)
+	{
+		OPMNodeCreateCommand command = new OPMNodeCreateCommand();
+		Rectangle constraints = (Rectangle) getConstraintFor(request);
+		command.setConstraints(new Rectangle(constraints.getLocation(),DEFAULT_THING_DIMENSION));
+		if(getHost().getModel() instanceof OPMObjectProcessDiagram) command.setContainer((OPMContainer) getHost().getModel()); 
+		else command.setContainer((OPMContainer) ((OPMNode) getHost().getModel()).getOpd());
+		//command.setContainer((OPMContainer) getHost().getModel());  
+		// <- make contained object. we don't have to use this functionality, so I commentlize this code. if you want use this,
+		// uncommentlize this code and delete if~else code right above.
+		command.setNode((OPMNode)(request.getNewObject()));
+		return command;
+	}
+	
 	
 	/**
 	 * The superclass implementation calls 

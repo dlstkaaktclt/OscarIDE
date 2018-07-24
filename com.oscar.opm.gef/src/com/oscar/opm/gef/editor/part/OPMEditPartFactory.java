@@ -5,6 +5,7 @@ import com.oscar.opm.model.OPMProceduralLink;
 import com.oscar.opm.model.OPMObject;
 import com.oscar.opm.model.OPMProcess;
 import com.oscar.opm.model.OPMStructuralLinkAggregator;
+import com.oscar.opm.model.OscarCode;
 import com.oscar.opm.model.OPMObjectProcessDiagram;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
@@ -23,7 +24,10 @@ public class OPMEditPartFactory implements EditPartFactory
 		
 		
 		if (model instanceof OPMObjectProcessDiagram) part = new OPMObjectProcessDiagramEditPart();
-		else if (model instanceof OPMObject) part = new OPMObjectEditPart();
+		else if (model instanceof OPMObject) {
+			if(model instanceof OscarCode) part = new OscarCodeEditPart();
+			else part = new OPMObjectEditPart();
+		}
 		else if (model instanceof OPMProcess) part = new OPMProcessEditPart();
 		else if (model instanceof OPMProceduralLink) part = new OPMProceduralLinkEditPart();
 		else if (model instanceof OPMLink) part = new OPMLinkEditPart();

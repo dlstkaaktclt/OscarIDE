@@ -133,6 +133,16 @@ public class OPMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OPMPackage.OSCAR_CODE: {
+				OscarCode oscarCode = (OscarCode)theEObject;
+				T result = caseOscarCode(oscarCode);
+				if (result == null) result = caseOPMObject(oscarCode);
+				if (result == null) result = caseOPMThing(oscarCode);
+				if (result == null) result = caseOPMNode(oscarCode);
+				if (result == null) result = caseOPMContainer(oscarCode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -254,6 +264,21 @@ public class OPMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOPMProceduralLink(OPMProceduralLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Oscar Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Oscar Code</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOscarCode(OscarCode object) {
 		return null;
 	}
 

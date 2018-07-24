@@ -94,6 +94,15 @@ public interface OPMFactory extends EFactory {
 	OPMProceduralLink createOPMProceduralLink();
 
 	/**
+	 * Returns a new object of class '<em>Oscar Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Oscar Code</em>'.
+	 * @generated
+	 */
+	OscarCode createOscarCode();
+
+	/**
 	 * Returns a new object of class '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

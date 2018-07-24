@@ -31,6 +31,11 @@ public class OPMObjectFigure extends OPMThingFigure {
 		return rectangle;
 	}
 	
+	protected RectangleFigure getRectangle() {
+		return this.rectangle;
+	}
+	
+	
 	
 	@Override
 	protected void paintFigure(Graphics graphics) {
