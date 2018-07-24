@@ -9,7 +9,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.actions.ActionFactory;
 
 import com.oscar.opm.gef.action.OPMCreateObjectAction;
-import com.oscar.opm.gef.action.OscarCodeCreateAction;
+import com.oscar.opm.gef.action.OscarCodePathChangeAction;
 import com.oscar.opm.gef.action.OscarCodeModifyAction;
 import com.oscar.opm.gef.action.ResizeToContentsAction;
 
@@ -32,7 +32,7 @@ public class OPMGraphicalEditorContextMenuProvider extends ContextMenuProvider {
 		menu.appendToGroup(GEFActionConstants.GROUP_UNDO, action);
 		action = getActionRegistry().getAction(ActionFactory.REDO.getId());
 		menu.appendToGroup(GEFActionConstants.GROUP_UNDO, action);
-		action = getActionRegistry().getAction(OscarCodeCreateAction.ID);
+		action = getActionRegistry().getAction(OscarCodePathChangeAction.CHANGE_CODEPATH);
 		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
 		action = getActionRegistry().getAction(OscarCodeModifyAction.MODIFY_CODE);
 		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);

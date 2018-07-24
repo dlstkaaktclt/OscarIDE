@@ -11,6 +11,7 @@ import com.oscar.opm.gef.editor.part.OPMNodeEditPart;
 import com.oscar.opm.gef.editor.part.OPMStructuralLinkAggregatorEditPart;
 import com.oscar.opm.gef.editor.part.OscarCodeEditPart;
 import com.oscar.opm.model.OPMStructuralLinkAggregator;
+import com.oscar.opm.model.OscarCode;
 
 public class OscarCodeModifyAction extends SelectionAction {
 
@@ -39,6 +40,10 @@ public class OscarCodeModifyAction extends SelectionAction {
 	@Override
 	public void run() {
 		OscarCodeEditPart editpart = (OscarCodeEditPart) getSelectedObjects().get(0);
+		((OscarCode) editpart.getModel()).getCodefile();
+		
+		
+		
 		
 		/*
 		// selected objects must be nodes because the action is enabled.
@@ -58,9 +63,6 @@ public class OscarCodeModifyAction extends SelectionAction {
      */
 	@Override
 	protected boolean calculateEnabled() {
-		if(getSelectedObjects().isEmpty()) {
-			return false;
-		}
 		if(getSelectedObjects().size()!=1) {
 			return false;
 		}
