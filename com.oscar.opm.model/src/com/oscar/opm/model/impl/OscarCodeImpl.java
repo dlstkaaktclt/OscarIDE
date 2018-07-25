@@ -35,7 +35,7 @@ public class OscarCodeImpl extends OPMObjectImpl implements OscarCode {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final File CODEFILE_EDEFAULT = (File)OPMFactory.eINSTANCE.createFromString(OPMPackage.eINSTANCE.getFile(), ".deafalut.txt");
+	protected static final File CODEFILE_EDEFAULT = (File)OPMFactory.eINSTANCE.createFromString(OPMPackage.eINSTANCE.getFile(), ".default.txt");
 
 	/**
 	 * The cached value of the '{@link #getCodefile() <em>Codefile</em>}' attribute.

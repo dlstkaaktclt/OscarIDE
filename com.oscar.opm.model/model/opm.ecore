@@ -69,7 +69,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OscarCode" eSuperTypes="#//OPMObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codefile" eType="#//File"
-        defaultValueLiteral=".deafalut.txt"/>
+        defaultValueLiteral=".default.txt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="File" instanceClassName="java.io.File"/>
 </ecore:EPackage>

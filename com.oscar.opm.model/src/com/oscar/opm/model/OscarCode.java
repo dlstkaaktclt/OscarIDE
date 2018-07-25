@@ -23,7 +23,7 @@ import java.io.File;
 public interface OscarCode extends OPMObject {
 	/**
 	 * Returns the value of the '<em><b>Codefile</b></em>' attribute.
-	 * The default value is <code>".deafalut.txt"</code>.
+	 * The default value is <code>".default.txt"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Codefile</em>' attribute isn't clear,
@@ -33,7 +33,7 @@ public interface OscarCode extends OPMObject {
 	 * @return the value of the '<em>Codefile</em>' attribute.
 	 * @see #setCodefile(File)
 	 * @see com.oscar.opm.model.OPMPackage#getOscarCode_Codefile()
-	 * @model default=".deafalut.txt" dataType="com.oscar.opm.model.File"
+	 * @model default=".default.txt" dataType="com.oscar.opm.model.File"
 	 * @generated
 	 */
 	File getCodefile();

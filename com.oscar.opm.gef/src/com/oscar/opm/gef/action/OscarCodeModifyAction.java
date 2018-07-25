@@ -1,16 +1,20 @@
 package com.oscar.opm.gef.action;
 
-import java.util.List;
+import java.io.File;
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
 
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.ui.actions.SelectionAction;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.ide.IDE;
 
-import com.oscar.opm.gef.editor.part.OPMNodeEditPart;
-import com.oscar.opm.gef.editor.part.OPMStructuralLinkAggregatorEditPart;
 import com.oscar.opm.gef.editor.part.OscarCodeEditPart;
-import com.oscar.opm.model.OPMStructuralLinkAggregator;
 import com.oscar.opm.model.OscarCode;
 
 public class OscarCodeModifyAction extends SelectionAction {
@@ -39,9 +43,31 @@ public class OscarCodeModifyAction extends SelectionAction {
      */
 	@Override
 	public void run() {
+	
+		OscarCodeEditPart editpart = (OscarCodeEditPart) getSelectedObjects().get(0);
+		File fileToOpen = ((OscarCode) editpart.getModel()).getCodefile();
+		 
+		if (fileToOpen.exists() && fileToOpen.isFile()) {
+		    IFileStore fileStore = EFS.getLocalFileSystem().getStore(fileToOpen.toURI());
+		    IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		 
+		    try {
+		        IDE.openEditorOnFileStore( page, fileStore );
+		    } catch ( PartInitException e ) {
+		        //Put your exception handler here if you wish to
+		    }
+		} else {
+		    //Do something if the file does not exist
+		}
+		
+		
+		/*
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		IWorkbenchPage page = window.getActivePage();
+		
 		OscarCodeEditPart editpart = (OscarCodeEditPart) getSelectedObjects().get(0);
 		((OscarCode) editpart.getModel()).getCodefile();
-		
+		*/
 		
 		
 		
