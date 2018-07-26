@@ -22,5 +22,5 @@ public class OPMStructuralLinkAggregatorEditPart extends OPMNodeEditPart {
 		OPMStructuralLinkAggregator model = (OPMStructuralLinkAggregator) getModel();
 		((GraphicalEditPart) getParent()).setLayoutConstraint(this, figure, model.getConstraints());
 	}
-
+	
 }

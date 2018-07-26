@@ -6,11 +6,14 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Orientable;
+import org.eclipse.draw2d.Viewport;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 
 import com.oscar.opm.model.OPMStructuralLinkAggregatorKind;
 import com.oscar.opm.model.OPMStructuralLinkAggregator;
@@ -81,13 +84,30 @@ public class OPMStructuralLinkAggregatorFigure extends Figure implements OPMNode
 	/ How to get left-top corner's coordinate of viewer in Figure object..? */
 	private ConnectionAnchor getTopAnchor() {
 		if(topAnchor == null) {
+			IFigure parentFig = this.getParent();
 			topAnchor = new AbstractConnectionAnchor(this) {
 				@Override
 				public Point getLocation(Point reference) {
+					Point viewPortLocatePoint = new Point(0,0);
+					IFigure parentFigure = parentFig;
+					
+					//get ViewPort's left-top coordinates to calculate real coordinate in viewport
+					//viewPort is currentArea editor show to user.
+					while( parentFigure != null ) 
+					{
+						if(parentFigure instanceof Viewport) 
+						{
+							Viewport viewport = (Viewport)parentFigure;
+							viewPortLocatePoint = viewport.getViewLocation();
+							parentFigure = null;
+						}
+						else parentFigure = parentFigure.getParent();
+					}
+					
 					Point p = new Point();
 					Rectangle ownerBounds = getOwner().getBounds().getCopy();
-					p.x = ownerBounds.x + ownerBounds.width/2;
-					p.y = ownerBounds.y;
+					p.x = ownerBounds.x + ownerBounds.width/2 - viewPortLocatePoint.x;
+					p.y = ownerBounds.y - viewPortLocatePoint.y;
 					return p;
 				}
 			};
@@ -100,25 +120,30 @@ public class OPMStructuralLinkAggregatorFigure extends Figure implements OPMNode
      */
 	private ConnectionAnchor getBottomAnchor() {
 		if(bottomAnchor == null) {
+			IFigure parentFig = this.getParent();
 			bottomAnchor = new AbstractConnectionAnchor(this) {
 				@Override
 				public Point getLocation(Point reference) {
+					Point viewPortLocatePoint = new Point(0,0);
+					IFigure parentFigure = parentFig;
 					
-					Display display = Display.getDefault();
-					org.eclipse.swt.graphics.Rectangle rect = display.getBounds();
-					Point point = new Point(rect.x,rect.y);
-					
-					/*
-					Point point = getGraphicalViewer().getControl().toControl(display.getCursorLocation());
-					FigureCanvas figureCanvas = (FigureCanvas)getGraphicalViewer().getControl();
-					org.eclipse.draw2d.geometry.Point location = figureCanvas.getViewport().getViewLocation();
-					*/
+					//get ViewPort's left-top coordinates to calculate real coordinate in viewport
+					//viewPort is currentArea editor show to user.
+					while( parentFigure != null ) 
+					{
+						if(parentFigure instanceof Viewport) 
+						{
+							Viewport viewport = (Viewport)parentFigure;
+							viewPortLocatePoint = viewport.getViewLocation();
+							parentFigure = null;
+						}
+						else parentFigure = parentFigure.getParent();
+					}
 					
 					Point p = new Point();
 					Rectangle ownerBounds = getOwner().getBounds().getCopy();
-					p.x = ownerBounds.x + ownerBounds.width/2;
-					p.y = ownerBounds.y + ownerBounds.height;
-
+					p.x = ownerBounds.x + ownerBounds.width/2 - viewPortLocatePoint.x;
+					p.y = ownerBounds.y + ownerBounds.height - viewPortLocatePoint.y;
 					return p;
 				}
 				

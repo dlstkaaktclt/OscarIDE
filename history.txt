@@ -10,4 +10,5 @@
            
 18/07/25 : add code modify functionality.
 
-17/07/26 : modify com.oscar.opm.gef 's MANIFEST.MF file to automatly set plugin dependencies.
+18/07/26 : modify com.oscar.opm.gef 's MANIFEST.MF file to automatly set plugin dependencies.
+           and fix bug in StructuralAggregator's ConnectionAnchor
