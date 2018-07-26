@@ -9,3 +9,5 @@
            add change codePath functionality in OscarCode model by using contextMenu.
            
 18/07/25 : add code modify functionality.
+
+17/07/26 : modify com.oscar.opm.gef 's MANIFEST.MF file to automatly set plugin dependencies.

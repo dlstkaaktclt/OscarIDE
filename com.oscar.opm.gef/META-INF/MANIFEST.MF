@@ -31,7 +31,13 @@ Require-Bundle: org.eclipse.ui,
  org.python.pydev.refactoring;bundle-version="6.4.3",
  org.python.pydev.shared_core;bundle-version="6.4.3",
  org.python.pydev.shared_interactive_console;bundle-version="6.4.3",
- org.python.pydev.shared_ui;bundle-version="6.4.3"
+ org.python.pydev.shared_ui;bundle-version="6.4.3",
+ org.eclipse.equinox.ds;bundle-version="1.5.0",
+ org.eclipse.ui.ide.application;bundle-version="1.2.0",
+ org.eclipse.equinox.event;bundle-version="1.4.0",
+ org.eclipse.mylyn.tasks.ui;bundle-version="3.23.1",
+ org.eclipse.ui.views.log;bundle-version="1.2.100",
+ org.eclipse.e4.tools.emf.ui;bundle-version="4.5.200"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: com.oscar.opm.gef
 Bundle-ActivationPolicy: lazy
